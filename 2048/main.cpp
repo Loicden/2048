@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <iostream>
 #include "case.h"
+#include "grille.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -21,9 +22,10 @@ int main(int argc, char *argv[])
 
 //    return app.exec();
 
-      Case case1 = Case(1,3);
-      case1.AffichePoint();
-      case1.SetValeur(4);
-      case1.AffichePoint();
+      Grille Grille2048 = Grille();
+      Grille2048.AfficherGrille();
+      cout<<""<<endl;
+      Grille2048.Changeval(1,2,2);
+      Grille2048.AfficherGrille();
 return 0;
 }

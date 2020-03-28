@@ -5,24 +5,6 @@ using namespace std;
 
 // FONCTIONS DE CREATION DE LA CASE
 
-Case::Case(int abs, int ord, int val,int Dim, char coul,int direction)
-    {
-    x = new int;
-    y = new int;
-    valeur = new int;
-    couleur = new char;
-    *x=abs;
-    *y=ord;
-    *valeur=val;
-    DimensionGrille=Dim;
-    *couleur= coul;
-    directionmove=direction;
-
-
-
-
-    }
-
 int Case::GetX(){
     return *x;
 }
@@ -60,6 +42,26 @@ void Case::SetDimension(int Dim){
 void Case::SetDirection(int dir){
     directionmove=dir;
 }
+
+
+Case::Case(int abs, int ord, int val,int Dim, char coul,int direction)
+    {
+    x = new int;
+    y = new int;
+    valeur = new int;
+    couleur = new char;
+    SetX(abs);
+    SetY(ord);
+    SetValeur(val);
+    SetDimension(Dim);
+    SetCouleur(coul);
+    SetDirection(direction);
+
+
+
+
+    }
+
 
 bool Case::IsEmpty(){
     if(GetValeur()==0){
