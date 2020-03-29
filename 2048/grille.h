@@ -10,6 +10,14 @@ public:
     void AfficherGrille();
     void Initialisation();
     void Changeval(int i, int j, int val);
+    int GetScore();
+    int GetTempScore();
+    int GetDim();
+    void Setscore(int score);
+    bool TestMove(int i, int j, int direction);
+    bool TestFuse(int i, int j, int direction);
+    void Move(int i, int j, int direction);
+    void Reset();
 
 
 
@@ -21,6 +29,14 @@ private:
     Case CasesN[3][3];
     Case CasesAvant[3][3][5]; //mémoire des coups précédents
 
+
+
+
+
 };
+
+
+
+
 
 #endif // GRILLE_H
