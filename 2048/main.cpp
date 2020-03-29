@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
       Grille2048.Move(0,2,0,3);
       cout<<Grille2048.TestFuse(0,3,0,0)<<endl;
       cout<<Grille2048.TestFuse(0,3,3,3)<<endl;
-
+      Grille2048.Fuse(0,3,0,0);
       Grille2048.AfficherGrille();
 
 

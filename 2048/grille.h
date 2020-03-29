@@ -18,6 +18,7 @@ public:
     bool TestFuse(int i, int j, int newi, int newj);
     void Move(int i, int j, int newi, int newj);
     void Reset();
+    void Fuse(int i, int j, int newi, int newj);
     bool IsemptyG(int i, int j);
 
 

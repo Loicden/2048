@@ -96,8 +96,10 @@ void Grille::Setscore(int score){
 
 bool Grille::TestMove(int i, int j, int newi, int newj){
     Case TriedTile;
-    Case NextTile;
     TriedTile=CasesN[i][j];
+    if (TriedTile.GetValeur()==0){
+        return false;
+    }
     if(i!=newi && j!=newj){
         return false;
 
@@ -115,6 +117,9 @@ bool Grille::TestFuse(int i, int j, int newi, int newj){
     Case NextTile;
     TriedTile=CasesN[i][j];
     NextTile=CasesN[newi][newj];
+    if (TriedTile.GetValeur()==0){
+        return false;
+    }
     if(i!=newi && j!=newj){
         return false;}
     else if (TriedTile.GetValeur()==NextTile.GetValeur()){
@@ -147,6 +152,15 @@ void Grille::Move(int i, int j, int newi, int newj){
             CasesN[newi][newj].SetValeur(newval);
         }
 }
+
+void Grille::Fuse(int i, int j, int newi, int newj){
+    int newval=2*CasesN[i][j].GetValeur();
+    CasesN[newi][newj].SetValeur(newval);
+    CasesN[i][j].SetValeur(0);
+
+
+}
+
 
 bool Grille::IsemptyG(int i, int j){
     return CasesN[i][j].IsEmpty();
