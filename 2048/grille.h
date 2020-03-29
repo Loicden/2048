@@ -9,6 +9,7 @@ public:
     Grille(int Dimension=4,int Score=0, int Tempscore=0);
     void AfficherGrille();
     void Initialisation();
+    void RandCase(bool Newturn = true);
     void Changeval(int i, int j, int val);
     int GetScore();
     int GetTempScore();
@@ -20,6 +21,8 @@ public:
     void Reset();
     void Fuse(int i, int j, int newi, int newj);
     bool IsemptyG(int i, int j);
+    void Coup(int Direction);
+    void Test();
 
 
 
@@ -27,6 +30,12 @@ private:
     int *Dimension;
     int *Score;
     int *Tempscore;
+    int valuecheck;
+    int randx;
+    int randy;
+    int Direction;
+    int Tab;
+    int Tab_inv;
     Case CasesN[4][4];
     Case CasesAvant[4][4][5]; //mémoire des coups précédents
 
