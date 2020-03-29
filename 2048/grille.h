@@ -14,20 +14,20 @@ public:
     int GetTempScore();
     int GetDim();
     void Setscore(int score);
-    bool TestMove(int i, int j, int direction);
-    bool TestFuse(int i, int j, int direction);
-    void Move(int i, int j, int direction);
+    bool TestMove(int i, int j, int newi, int newj);
+    bool TestFuse(int i, int j, int newi, int newj);
+    void Move(int i, int j, int newi, int newj);
     void Reset();
+    bool IsemptyG(int i, int j);
 
 
 
 private:
-
     int *Dimension;
     int *Score;
     int *Tempscore;
-    Case CasesN[3][3];
-    Case CasesAvant[3][3][5]; //mémoire des coups précédents
+    Case CasesN[4][4];
+    Case CasesAvant[4][4][5]; //mémoire des coups précédents
 
 
 

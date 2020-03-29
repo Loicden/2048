@@ -7,7 +7,7 @@ using namespace std;
 // FONCTIONS DE CREATION DE LA GRILLE
 
 Grille::Grille(int Dim, int Sco, int TempSco)
-    {
+{
     Dimension= new int;
     Score=new int;
     Tempscore=new int;
@@ -25,20 +25,22 @@ Grille::Grille(int Dim, int Sco, int TempSco)
     Case CasesAvant[Dim][Dim][5];
 
 
+
     Initialisation();
 
 
 
 
-    }
+}
 
 void Grille::Initialisation(){
     int i;
     int j;
     for(i=0; i<*Dimension+1; i++){
         for(j=0;j<*Dimension+1; j++){
-            Case NewCase=Case(i,j,0,*Dimension);
-            CasesN[i][j]= NewCase;
+            Case Newcase;
+            Newcase=Case(i,j,0);
+            CasesN[i][j]= Newcase;
         }
     }
 
@@ -50,12 +52,11 @@ void Grille::AfficherGrille(){
     int j;
     for(i=0;i<*Dimension;i++){
         for(j=0;j<*Dimension;j++){
-            Case caseij=CasesN[i][j];
-            cout<<caseij.GetValeur()<<" ";
+            cout<<CasesN[i][j].GetValeur()<<" ";
         }
         cout<<endl;
     }
-cout<<endl;
+    cout<<endl;
 }
 
 void Grille::Reset(){
@@ -69,7 +70,7 @@ void Grille::Reset(){
 }
 
 void Grille::Changeval(int i, int j, int val){
-    CasesN[i][j].SetValeur(val);
+    CasesN[i][j]=Case(i,j,val);
 }
 
 
@@ -89,113 +90,64 @@ void Grille::Setscore(int score){
     *Score=score;
 }
 
-bool Grille::TestMove(int i, int j, int direction){
+
+
+
+
+bool Grille::TestMove(int i, int j, int newi, int newj){
     Case TriedTile;
     Case NextTile;
     TriedTile=CasesN[i][j];
-    if(direction==1){
-        if (i==0){
-                return false;
-        }
-        else {
-                    NextTile=CasesN[i-1][j];
-                    if(NextTile.GetValeur()!=0){
-                        return false;
-                    }
-                    return true;
-                }
-    }
+    if(i!=newi && j!=newj){
+        return false;
 
-    if(direction==2){
-        if (j==*Dimension){
-            return false;
-        }
-        else {
-            NextTile=CasesN[i][j+1];
-            if(NextTile.GetValeur()!=0){
-                return false;
-            }
-            return true;
-        }
     }
-
-    if(direction==3){
-        if (i==*Dimension){
-            return false;
-        }
-        else {
-            NextTile=CasesN[i+1][j];
-            if(NextTile.GetValeur()!=0){
-                return false;
-            }
-            return true;
-        }
+    else if (CasesN[newi][newj].GetValeur()==0){
+        return true;
     }
-    if(direction==4){
-        if (j==0){
-            return false;
-        }
-        else {
-            NextTile=CasesN[i][j-1];
-            if(NextTile.GetValeur()!=0){
-                return false;
-            }
-            return true;
-        }
-    }
+    return false;
 
 
 }
 
-bool Grille::TestFuse(int i, int j, int direction){
+bool Grille::TestFuse(int i, int j, int newi, int newj){
     Case TriedTile;
     Case NextTile;
     TriedTile=CasesN[i][j];
-    if (direction==1){
-        NextTile=CasesN[i-1][j];
-        if(NextTile.GetValeur()==TriedTile.GetValeur()){
-            return true;
-        }
-        return false;
+    NextTile=CasesN[newi][newj];
+    if(i!=newi && j!=newj){
+        return false;}
+    else if (TriedTile.GetValeur()==NextTile.GetValeur()){
+        return true;
     }
-    if (direction==2){
-        NextTile=CasesN[i][j+1];
-        if(NextTile.GetValeur()==TriedTile.GetValeur()){
-            return true;
-        }
-        return false;
-    }
-    if (direction==3){
-        NextTile=CasesN[i+1][j];
-        if(NextTile.GetValeur()==TriedTile.GetValeur()){
-            return true;
-        }
-        return false;
-    }
-    if (direction==4){
-        NextTile=CasesN[i][j-1];
-        if(NextTile.GetValeur()==TriedTile.GetValeur()){
-            return true;
-        }
-        return false;
-    }
+    return false;
 
-return false;
+}
+void Grille::Move(int i, int j, int newi, int newj){
+
+        int newval=CasesN[i][j].GetValeur();
+        CasesN[i][j].SetValeur(0);
+        if (newi>*Dimension-1){
+            CasesN[*Dimension-1][newj].SetValeur(newval);
+
+        }
+        else if (newi<0){
+            CasesN[0][newj].SetValeur(newval);
+
+        }
+        else if(newj>*Dimension-1){
+            CasesN[newi][*Dimension-1].SetValeur(newval);
+
+        }
+        else if (newj<0){
+            CasesN[newi][0].SetValeur(newval);
+
+        }
+        else {
+            CasesN[newi][newj].SetValeur(newval);
+        }
 }
 
-void Grille::Move(int i, int j, int direction){
-    int newval=CasesN[i][j].GetValeur();
-    CasesN[i][j].SetValeur(0);
-    if(direction==1){
-        CasesN[i-1][j].SetValeur(newval);
-    }
-    else if(direction==2){
-        CasesN[i][j+1].SetValeur(newval);
-    }
-    else if(direction==3){
-        CasesN[i+1][j].SetValeur(newval);
-    }
-    else if(direction==4){
-        CasesN[i][j-1].SetValeur(newval);
-    }
+bool Grille::IsemptyG(int i, int j){
+    return CasesN[i][j].IsEmpty();
 }

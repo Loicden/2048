@@ -23,35 +23,33 @@ int main(int argc, char *argv[])
 //    return app.exec();
 
       Grille Grille2048 = Grille();
+//      Grille2048.AfficherGrille();
+      Grille2048.Changeval(0,3,2);
+      Grille2048.Changeval(0,0,2);
+      Grille2048.Changeval(3,3,4);
       Grille2048.AfficherGrille();
-//      Grille2048.Changeval(1,2,2);
-//      Grille2048.Changeval(3,3,2);
-//      Grille2048.Changeval(0,0,4);
-//      Grille2048.AfficherGrille();
-//      Grille2048.Reset();
-//      Grille2048.AfficherGrille();
-//      cout<<Grille2048.TestMove(0,0,1);
-//      cout<<Grille2048.TestMove(0,0,2);
-//      cout<<Grille2048.TestMove(0,0,3);
-//      cout<<Grille2048.TestMove(0,0,4);
-//      cout<<Grille2048.TestMove(1,2,1);
-//      cout<<Grille2048.TestMove(1,2,2);
-//      cout<<Grille2048.TestMove(1,2,3);
-//      cout<<Grille2048.TestMove(1,2,4);
-//      cout<<Grille2048.TestFuse(1,2,2);
-//      cout<<Grille2048.TestFuse(1,2,1);
-//      Grille2048.Changeval(3,0,8);
-//      Grille2048.AfficherGrille();
-//      Grille2048.Move(1,2,2);
-//      Grille2048.AfficherGrille();
-int k;
-int n;
-for (k=0;k<Grille2048.GetDim();k++){
-    for (n=0;n<Grille2048.GetDim();n++){
-        Grille2048.Changeval(k,n,2);
-        Grille2048.AfficherGrille();
-        Grille2048.Reset();}
-}
+      cout<<Grille2048.TestMove(0,3,0,2)<<endl;
+      cout<<Grille2048.TestMove(0,3,1,2)<<endl;
+      cout<<Grille2048.TestMove(0,3,0,0)<<endl;
+      cout<<Grille2048.TestMove(0,3,3,3)<<endl;
+      Grille2048.Move(0,3,0,2);
+      cout<<Grille2048.TestFuse(0,2,0,0)<<endl;
+      cout<<Grille2048.TestFuse(0,2,0,1)<<endl;
+      Grille2048.Move(0,2,0,3);
+      cout<<Grille2048.TestFuse(0,3,0,0)<<endl;
+      cout<<Grille2048.TestFuse(0,3,3,3)<<endl;
+
+      Grille2048.AfficherGrille();
+
+
+//int k;
+//int n;
+//for (k=0;k<Grille2048.GetDim();k++){
+//    for (n=0;n<Grille2048.GetDim();n++){
+//        Grille2048.Changeval(k,n,2);
+//        Grille2048.AfficherGrille();
+//        Grille2048.Reset();}
+//}
 
 return 0;
 }
