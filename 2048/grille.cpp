@@ -211,37 +211,56 @@ void Grille::Coup(int Dir){
     int j;
     int Tab[] = {1,2,3,4};
     int Tab_inv[] = {4,3,2,1};
+    int x_it;
+    int y_it;
 
-    if (Dir == 1){
-        for(i=0; i<*Dimension; i++){
-            for (j=0; j<*Dimension; j++){
-                cout<<"On observe la case : "<<Tab[i]-1<<";"<<Tab[j]-1<<" de valeur "<<CasesN[Tab[i]-1][Tab[j]-1].GetValeur()<<endl;
+    for(i=0; i<*Dimension; i++){
+        for (j=0; j<*Dimension; j++){
+
+            if (Dir == 1){x_it = Tab[i]-1; y_it = Tab[j]-1;}
+            else if (Dir == 2){x_it = Tab[i]-1; y_it = Tab_inv[j]-1;}
+            else if (Dir == 3){x_it = Tab[j]-1; y_it = Tab[i]-1;}
+            else{x_it = Tab_inv[j]-1; y_it = Tab[i]-1;}
+
+            cout<<"On observe la case : "<<x_it<<";"<<y_it<<" de valeur "<<CasesN[x_it][y_it].GetValeur()<<endl;
+
+            int deplacement = 0;
+            //cout<<"coucou"<<endl;
+
+            if (CasesN[x_it][y_it].GetValeur() != 0 and y_it-deplacement != 0){
+                while(TestMove(x_it, y_it, x_it, y_it-(deplacement+1))){
+                        deplacement += 1;
+                        cout<<"On deplace de "<<deplacement+1<<endl;
+                    }
+                if (TestFuse(x_it, y_it, x_it, y_it-(deplacement+1))){
+                    Fuse(x_it, y_it, x_it, y_it-(deplacement+1));
+                    cout<<"coucou"<<endl;
+                }
+                else if (deplacement != 0){
+                    Move(x_it, y_it, x_it, y_it-deplacement);
+                }
             }
+            else{cout<<"On ne fait rien"<<endl;}
+            /*
+            if (Dir == 1 and y_it != 0){
+                if (TestMove(x_it, y_it, x_it, y_it-1)){        // Premier déplacement
+                    if (y_it-1 != 0){
+                        if (TestMove(x_it, y_it, x_it, y_it-2)){       // Deuxième
+                            if (y_it-2 != 0){
+                                if (TestMove(x_it, y_it, x_it, y_it-3)){       // Troisième
+                                    Move(x_it, y_it, x_it, y_it-3);
+                                }
+                            }
+                        Move(x_it, y_it, x_it, y_it-2);
+                    }
+                Move(x_it, y_it, x_it, y_it-1);
+                }
+            else if (Dir == 2){x_it = Tab[i]-1; y_it = Tab_inv[j]-1;}
+            else if (Dir == 3){x_it = Tab[j]-1; y_it = Tab[i]-1;}
+            else{x_it = Tab_inv[j]-1; y_it = Tab[i]-1;}
+            */
         }
     }
-
-    if (Dir == 2){
-        for(i=0; i<*Dimension; i++){
-            for (j=0; j<*Dimension; j++){
-                cout<<"On observe la case : "<<Tab[i]-1<<";"<<Tab_inv[j]-1<<" de valeur "<<CasesN[Tab[i]-1][Tab_inv[j]-1].GetValeur()<<endl;
-            }
-        }
-    }
-
-    if (Dir == 3){
-        for(i=0; i<*Dimension; i++){
-            for (j=0; j<*Dimension; j++){
-                cout<<"On observe la case : "<<Tab[j]-1<<";"<<Tab[i]-1<<" de valeur "<<CasesN[Tab[j]-1][Tab[i]-1].GetValeur()<<endl;
-            }
-        }
-    }
-
-    if (Dir == 3){
-        for(i=0; i<*Dimension; i++){
-            for (j=0; j<*Dimension; j++){
-                cout<<"On observe la case : "<<Tab[j]-1<<";"<<Tab_inv[i]-1<<" de valeur "<<CasesN[Tab[j]-1][Tab_inv[i]-1].GetValeur()<<endl;
-            }
-        }
-    }
+    cout<<endl;
     //RandCase();
 }
