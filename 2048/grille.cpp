@@ -318,4 +318,5 @@ void Grille::Coup(int Dir){
     }
     cout<<endl;
     //RandCase();
+    //Reset_canfuse();
 }
