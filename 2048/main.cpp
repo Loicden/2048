@@ -7,27 +7,36 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-//    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+/*
 
-//    QGuiApplication app(argc, argv);
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QGuiApplication app(argc, argv);
+    QQmlApplicationEngine engine;
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+                     &app, [url](QObject *obj, const QUrl &objUrl) {
+        if (!obj && url == objUrl)
+            QCoreApplication::exit(-1);
+    }, Qt::QueuedConnection);
+    engine.load(url);
 
-//    QQmlApplicationEngine engine;
-//    const QUrl url(QStringLiteral("qrc:/main.qml"));
-//    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-//                     &app, [url](QObject *obj, const QUrl &objUrl) {
-//        if (!obj && url == objUrl)
-//            QCoreApplication::exit(-1);
-//    }, Qt::QueuedConnection);
-//    engine.load(url);
-
-//    return app.exec();
-
+    return app.exec();
+*/
       Grille Grille2048 = Grille();
-//      Grille2048.AfficherGrille();
-      Grille2048.Changeval(0,3,2);
-      Grille2048.Changeval(0,0,2);
-      Grille2048.Changeval(3,3,4);
+/*
       Grille2048.AfficherGrille();
+      Grille2048.RandCase(false);
+      Grille2048.AfficherGrille();
+      Grille2048.RandCase(false);
+      Grille2048.AfficherGrille();
+      Grille2048.RandCase();
+      Grille2048.AfficherGrille();
+*/
+      Grille2048.Changeval(0,0,2);
+      Grille2048.Changeval(0,3,2);
+      Grille2048.Changeval(0,2,2);
+      Grille2048.AfficherGrille();
+      /*
       cout<<Grille2048.TestMove(0,3,0,2)<<endl;
       cout<<Grille2048.TestMove(0,3,1,2)<<endl;
       cout<<Grille2048.TestMove(0,3,0,0)<<endl;
@@ -39,6 +48,14 @@ int main(int argc, char *argv[])
       cout<<Grille2048.TestFuse(0,3,0,0)<<endl;
       cout<<Grille2048.TestFuse(0,3,3,3)<<endl;
       Grille2048.Fuse(0,3,0,0);
+      Grille2048.AfficherGrille();
+
+*/
+      Grille2048.Coup(1);     //Gauche
+      //Grille2048.Coup(2);     //Droite
+      //Grille2048.Coup(3);     //Haut
+      //Grille2048.Coup(4);     //Bas
+
       Grille2048.AfficherGrille();
 
 

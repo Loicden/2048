@@ -1,8 +1,12 @@
 #include "grille.h"
 #include <iostream>
 #include "case.h"
-using namespace std;
 
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
+using namespace std;
 
 // FONCTIONS DE CREATION DE LA GRILLE
 
@@ -42,10 +46,46 @@ void Grille::Initialisation(){
             Newcase=Case(i,j,0);
             CasesN[i][j]= Newcase;
         }
+
     }
 
 
 }
+
+void Grille::RandCase(bool Newt){
+  int value;
+
+  /* initialize random seed: */
+  srand (time(NULL));
+
+  value = 2;
+  srand (time(NULL));
+  if (Newt == true){
+      int proba;
+      /* generate secret number between 1 and 10: */
+      proba = rand() % 10 + 1;
+      cout<<"La proba est : "<<proba<<endl;
+      /* On choisit une proba de 3/10 arbitrairement */
+      if (proba < 3){
+          value = 4;
+      }
+  }
+  cout<<"La valeur de la nouvelle case est "<<value<<endl;
+
+  int randx, randy;
+  do{
+      randx = rand() % *Dimension ;
+      randy = rand() % *Dimension ;
+      cout<<"x est "<<randx<<endl;
+      cout<<"y est "<<randy<<endl;
+
+  }
+  while (CasesN[randx][randy].IsEmpty() == false);
+  Changeval(randx,randy,value);
+}
+
+
+
 
 void Grille::AfficherGrille(){
     int i;
@@ -164,4 +204,63 @@ void Grille::Fuse(int i, int j, int newi, int newj){
 
 bool Grille::IsemptyG(int i, int j){
     return CasesN[i][j].IsEmpty();
+}
+
+void Grille::Coup(int Dir){
+    int i;
+    int j;
+    int Tab[] = {1,2,3,4};
+    int Tab_inv[] = {4,3,2,1};
+    int x_it;
+    int y_it;
+
+    for(i=0; i<*Dimension; i++){
+        for (j=0; j<*Dimension; j++){
+
+            if (Dir == 1){x_it = Tab[i]-1; y_it = Tab[j]-1;}
+            else if (Dir == 2){x_it = Tab[i]-1; y_it = Tab_inv[j]-1;}
+            else if (Dir == 3){x_it = Tab[j]-1; y_it = Tab[i]-1;}
+            else{x_it = Tab_inv[j]-1; y_it = Tab[i]-1;}
+
+            cout<<"On observe la case : "<<x_it<<";"<<y_it<<" de valeur "<<CasesN[x_it][y_it].GetValeur()<<endl;
+
+            int deplacement = 0;
+            //cout<<"coucou"<<endl;
+
+            if (CasesN[x_it][y_it].GetValeur() != 0 and y_it-deplacement != 0){
+                while(TestMove(x_it, y_it, x_it, y_it-(deplacement+1))){
+                        deplacement += 1;
+                        cout<<"On deplace de "<<deplacement+1<<endl;
+                    }
+                if (TestFuse(x_it, y_it, x_it, y_it-(deplacement+1))){
+                    Fuse(x_it, y_it, x_it, y_it-(deplacement+1));
+                    cout<<"coucou"<<endl;
+                }
+                else if (deplacement != 0){
+                    Move(x_it, y_it, x_it, y_it-deplacement);
+                }
+            }
+            else{cout<<"On ne fait rien"<<endl;}
+            /*
+            if (Dir == 1 and y_it != 0){
+                if (TestMove(x_it, y_it, x_it, y_it-1)){        // Premier déplacement
+                    if (y_it-1 != 0){
+                        if (TestMove(x_it, y_it, x_it, y_it-2)){       // Deuxième
+                            if (y_it-2 != 0){
+                                if (TestMove(x_it, y_it, x_it, y_it-3)){       // Troisième
+                                    Move(x_it, y_it, x_it, y_it-3);
+                                }
+                            }
+                        Move(x_it, y_it, x_it, y_it-2);
+                    }
+                Move(x_it, y_it, x_it, y_it-1);
+                }
+            else if (Dir == 2){x_it = Tab[i]-1; y_it = Tab_inv[j]-1;}
+            else if (Dir == 3){x_it = Tab[j]-1; y_it = Tab[i]-1;}
+            else{x_it = Tab_inv[j]-1; y_it = Tab[i]-1;}
+            */
+        }
+    }
+    cout<<endl;
+    //RandCase();
 }
