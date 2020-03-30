@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
       Grille2048.RandCase();
       Grille2048.AfficherGrille();
 */
-      Grille2048.Changeval(0,0,2);
+      //Grille2048.Changeval(0,0,2);
       Grille2048.Changeval(0,3,2);
       Grille2048.Changeval(0,2,2);
       Grille2048.AfficherGrille();
@@ -51,13 +51,23 @@ int main(int argc, char *argv[])
       Grille2048.AfficherGrille();
 
 */
-      Grille2048.Coup(1);     //Gauche
-      //Grille2048.Coup(2);     //Droite
-      //Grille2048.Coup(3);     //Haut
-      //Grille2048.Coup(4);     //Bas
+      //Grille2048.Coup(1);     //Gauche
+      //Grille2048.AfficherGrille();
+      Grille2048.Changeval(0,3,2);
+      //Grille2048.AfficherGrille();
 
+      //Grille2048.Coup(2);     //Droite
+      //Grille2048.AfficherGrille();
+      Grille2048.Changeval(2,0,2);
       Grille2048.AfficherGrille();
 
+      Grille2048.Coup(3);     //Haut
+      Grille2048.AfficherGrille();
+      Grille2048.Changeval(3,0,2);
+      Grille2048.AfficherGrille();
+
+      Grille2048.Coup(4);     //Bas
+      Grille2048.AfficherGrille();
 
 //int k;
 //int n;
