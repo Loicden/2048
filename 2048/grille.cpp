@@ -37,6 +37,20 @@ Grille::Grille(int Dim, int Sco, int TempSco)
 
 }
 
+bool Grille::Canfuse(int i, int j){
+    return CasesN[i][j].Getfuse();
+}
+
+void Grille::Resetfuse(){
+    int k;
+    int j;
+    for(k=0;k<*Dimension+1; k++){
+        for(j=0;j<*Dimension+1;j++){
+            CasesN[k][j].Setfuse(true);
+        }
+    }
+}
+
 void Grille::Initialisation(){
     int i;
     int j;
@@ -161,6 +175,9 @@ bool Grille::TestFuse(int i, int j, int newi, int newj){
     Case NextTile;
     TriedTile=CasesN[i][j];
     NextTile=CasesN[newi][newj];
+    if(NextTile.Getfuse()==false){
+        return false;
+    }
     if (TriedTile.GetValeur()==0){
         return false;
     }
@@ -201,6 +218,7 @@ void Grille::Fuse(int i, int j, int newi, int newj){
     int newval=2*CasesN[i][j].GetValeur();
     CasesN[newi][newj].SetValeur(newval);
     CasesN[i][j].SetValeur(0);
+    CasesN[newi][newj].Setfuse(false);
 
 
 }
@@ -225,92 +243,92 @@ void Grille::Coup(int Dir){
             else if (Dir == 3){x_it = Tab[j]-1; y_it = Tab[i]-1;}
             else{x_it = Tab_inv[j]-1; y_it = Tab[i]-1;}
 
-            cout<<"On observe la case : "<<x_it<<";"<<y_it<<" de valeur "<<CasesN[x_it][y_it].GetValeur()<<endl;
+//            cout<<"On observe la case : "<<x_it<<";"<<y_it<<" de valeur "<<CasesN[x_it][y_it].GetValeur()<<endl;
 
             int deplacement = 1;
             if (CasesN[x_it][y_it].GetValeur() != 0){
                 if (Dir == 1){
                     if (y_it-(deplacement-1) != 0){
-                        cout<<endl;
-                        cout<<"On deplace a gauche"<<endl;
+//                        cout<<endl;
+//                        cout<<"On deplace a gauche"<<endl;
                         while(TestMove(x_it, y_it, x_it, y_it-(deplacement))){
                                 deplacement += 1;
-                                cout<<"On deplace de "<<deplacement<<endl;
+//                                cout<<"On deplace de "<<deplacement<<endl;
                             }
                         if (TestFuse(x_it, y_it, x_it, y_it-(deplacement))){
                             Fuse(x_it, y_it, x_it, y_it-(deplacement));
-                            cout<<"On fusionne avec "<<x_it<<";"<<y_it-(deplacement)<<endl;
+//                            cout<<"On fusionne avec "<<x_it<<";"<<y_it-(deplacement)<<endl;
                         }
                         else if (deplacement != 1){
                             Move(x_it, y_it, x_it, y_it-(deplacement-1));
-                            cout<<"On bouge sur "<<x_it<<";"<<y_it-(deplacement-1)<<endl;
+//                            cout<<"On bouge sur "<<x_it<<";"<<y_it-(deplacement-1)<<endl;
                         }
                     }
                     else{
-                        cout<<"On ne fait rien"<<endl;
+//                        cout<<"On ne fait rien"<<endl;
                     }
                 }
                 else if (Dir == 2){
                     if (y_it+(deplacement-1) != 3){
-                        cout<<endl;
-                        cout<<"On deplace a droite"<<endl;
+//                        cout<<endl;
+//                        cout<<"On deplace a droite"<<endl;
                         while(TestMove(x_it, y_it, x_it, y_it+(deplacement)) and y_it+(deplacement) < *Dimension){
                                 deplacement += 1;
-                                cout<<"On deplace de "<<deplacement<<endl;
+//                                cout<<"On deplace de "<<deplacement<<endl;
                             }
                         if (TestFuse(x_it, y_it, x_it, y_it+(deplacement))){
                             Fuse(x_it, y_it, x_it, y_it+(deplacement));
-                            cout<<"On fusionne avec "<<x_it<<";"<<y_it+(deplacement)<<endl;
+//                            cout<<"On fusionne avec "<<x_it<<";"<<y_it+(deplacement)<<endl;
                         }
                         else if (deplacement != 1){
                             Move(x_it, y_it, x_it, y_it+(deplacement-1));
-                            cout<<"On bouge sur "<<x_it<<";"<<y_it+(deplacement-1)<<endl;
+//                            cout<<"On bouge sur "<<x_it<<";"<<y_it+(deplacement-1)<<endl;
                         }
                     }
                     else{
-                        cout<<"On ne fait rien"<<endl;
+//                        cout<<"On ne fait rien"<<endl;
                     }
                 }
                 else if (Dir == 3){
                     if (x_it-(deplacement-1) != 0){
-                        cout<<endl;
-                        cout<<"On deplace en haut"<<endl;
+//                        cout<<endl;
+//                        cout<<"On deplace en haut"<<endl;
                         while(TestMove(x_it, y_it, x_it-(deplacement), y_it)){
                                 deplacement += 1;
-                                cout<<"On deplace de "<<deplacement<<endl;
+//                                cout<<"On deplace de "<<deplacement<<endl;
                             }
                         if (TestFuse(x_it, y_it, x_it-(deplacement), y_it)){
                             Fuse(x_it, y_it, x_it-(deplacement), y_it);
-                            cout<<"On fusionne avec "<<x_it-(deplacement)<<";"<<y_it<<endl;
+//                            cout<<"On fusionne avec "<<x_it-(deplacement)<<";"<<y_it<<endl;
                         }
                         else if (deplacement != 1){
                             Move(x_it, y_it, x_it-(deplacement-1), y_it);
-                            cout<<"On bouge sur "<<x_it-(deplacement-1)<<";"<<y_it<<endl;
+//                            cout<<"On bouge sur "<<x_it-(deplacement-1)<<";"<<y_it<<endl;
                         }
                     }
                     else{
-                        cout<<"On ne fait rien"<<endl;
+//                        cout<<"On ne fait rien"<<endl;
                     }
                 }
                 else if (Dir == 4){
                     if (x_it+(deplacement-1) != 3){
-                        cout<<endl;
-                        cout<<"On deplace en bas"<<endl;
+//                        cout<<endl;
+//                        cout<<"On deplace en bas"<<endl;
                         while(TestMove(x_it, y_it, x_it+(deplacement), y_it) and x_it+(deplacement) < *Dimension){
                                 deplacement += 1;
-                                cout<<"On deplace de "<<deplacement<<endl;
+//                                cout<<"On deplace de "<<deplacement<<endl;
                             }
                         if (TestFuse(x_it, y_it, x_it+(deplacement), y_it)){
                             Fuse(x_it, y_it, x_it+(deplacement), y_it);
-                            cout<<"On fusionne avec "<<x_it+(deplacement)<<";"<<y_it<<endl;
+//                            cout<<"On fusionne avec "<<x_it+(deplacement)<<";"<<y_it<<endl;
                         }
                         else if (deplacement != 1){
                             Move(x_it, y_it, x_it+(deplacement-1), y_it);
-                            cout<<"On bouge sur "<<x_it+(deplacement-1)<<";"<<y_it<<endl;
+//                            cout<<"On bouge sur "<<x_it+(deplacement-1)<<";"<<y_it<<endl;
                         }
                     }
                     else{
-                        cout<<"On ne fait rien"<<endl;
+//                        cout<<"On ne fait rien"<<endl;
                     }
                 }
             }
@@ -318,5 +336,5 @@ void Grille::Coup(int Dir){
     }
     cout<<endl;
     //RandCase();
-    //Reset_canfuse();
+    Resetfuse();
 }

@@ -8,6 +8,17 @@ using namespace std;
 int Case::GetX(){
     return *x;
 }
+
+void Case::Setfuse(bool fuse){
+
+    Canfuse=fuse;
+}
+
+
+bool Case::Getfuse(){
+    return Canfuse;
+}
+
 void Case::SetX(int abs){
     *x=abs;
 }
@@ -56,7 +67,7 @@ Case::Case(int abs, int ord, int val,int Dim, char coul,int direction)
     SetDimension(Dim);
     SetCouleur(coul);
     SetDirection(direction);
-
+    Setfuse(true);
 
 
 
