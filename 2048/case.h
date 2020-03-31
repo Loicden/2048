@@ -22,6 +22,8 @@ public:
     void SetCouleur(char coul);
     void SetDimension(int Dim);
     void SetDirection(int dir);
+    bool Getfuse();
+    void Setfuse(bool fuse);
 
     bool IsEmpty();
 
@@ -39,6 +41,7 @@ private:
     int directionmove;
     int DimensionGrille;
     char *couleur;
+    bool Canfuse;
 
 
 

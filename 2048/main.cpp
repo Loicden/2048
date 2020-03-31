@@ -33,9 +33,9 @@ int main(int argc, char *argv[])
       Grille2048.AfficherGrille();
 */
       //Grille2048.Changeval(0,0,2);
-      Grille2048.Changeval(0,2,2);
-      Grille2048.Changeval(0,0,2);
-      Grille2048.AfficherGrille();
+//      Grille2048.Changeval(0,2,2);
+//      Grille2048.Changeval(0,0,2);
+//      Grille2048.AfficherGrille();
       /*
       cout<<Grille2048.TestMove(0,3,0,2)<<endl;
       cout<<Grille2048.TestMove(0,3,1,2)<<endl;
@@ -51,23 +51,27 @@ int main(int argc, char *argv[])
       Grille2048.AfficherGrille();
 
 */
-      cout<<"Coup a gauche"<<endl;
-      Grille2048.Coup(4);     //Droite
-      Grille2048.AfficherGrille();
-      cout<<"Pop"<<endl;
-      Grille2048.Changeval(0,0,2);
-      Grille2048.Changeval(3,3,4);
-      Grille2048.AfficherGrille();
-
-      cout<<"Coup a gauche"<<endl;
-      Grille2048.Coup(4);     //Droite
-      cout<<"Pop"<<endl;
+//      cout<<"Coup a gauche"<<endl;
+//      Grille2048.Coup(4);     //Droite
+//      Grille2048.AfficherGrille();
+//      cout<<"Pop"<<endl;
+      Grille2048.Changeval(0,3,2);
+      Grille2048.Changeval(0,2,2);
+      Grille2048.Changeval(0,0,4);
       Grille2048.AfficherGrille();
 
-      cout<<"Coup a gauche"<<endl;
-      Grille2048.Coup(2);     //Droite
-      cout<<"Pop"<<endl;
+      Grille2048.Coup(2);
       Grille2048.AfficherGrille();
+
+//      cout<<"Coup a gauche"<<endl;
+//      Grille2048.Coup(4);     //Droite
+//      cout<<"Pop"<<endl;
+//      Grille2048.AfficherGrille();
+
+//      cout<<"Coup a gauche"<<endl;
+//      Grille2048.Coup(2);     //Droite
+//      cout<<"Pop"<<endl;
+//      Grille2048.AfficherGrille();
 
 //      cout<<"Coup en bas"<<endl;
 //      Grille2048.Coup(4);     //Bas

@@ -37,6 +37,20 @@ Grille::Grille(int Dim, int Sco, int TempSco)
 
 }
 
+bool Grille::Canfuse(int i, int j){
+    return CasesN[i][j].Getfuse();
+}
+
+void Grille::Resetfuse(){
+    int k;
+    int j;
+    for(k=0;k<*Dimension+1; k++){
+        for(j=0;j<*Dimension+1;j++){
+            CasesN[k][j].Setfuse(true);
+        }
+    }
+}
+
 void Grille::Initialisation(){
     int i;
     int j;
@@ -161,6 +175,9 @@ bool Grille::TestFuse(int i, int j, int newi, int newj){
     Case NextTile;
     TriedTile=CasesN[i][j];
     NextTile=CasesN[newi][newj];
+    if(NextTile.Getfuse()==false){
+        return false;
+    }
     if (TriedTile.GetValeur()==0){
         return false;
     }
@@ -201,6 +218,7 @@ void Grille::Fuse(int i, int j, int newi, int newj){
     int newval=2*CasesN[i][j].GetValeur();
     CasesN[newi][newj].SetValeur(newval);
     CasesN[i][j].SetValeur(0);
+    CasesN[newi][newj].Setfuse(false);
 
 
 }
@@ -318,5 +336,5 @@ void Grille::Coup(int Dir){
     }
     cout<<endl;
     //RandCase();
-    //Reset_canfuse();
+    Resetfuse();
 }

@@ -23,6 +23,8 @@ public:
     bool IsemptyG(int i, int j);
     void Coup(int Direction);
     void Test();
+    bool Canfuse(int i, int j);
+    void Resetfuse();
 
 
 
