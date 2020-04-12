@@ -1,14 +1,13 @@
 import QtQuick 2.0
 
 Item {
-    width: 150
+    width: 90
     height: 50
-    property alias elementText: element.text
     Rectangle {
         id: rectangle
         x: 0
         y: 0
-        width: 150
+        width: 90
         height: 50
         color: "#d5d9ea"
         radius: 13
@@ -17,10 +16,10 @@ Item {
 
         Text {
             id: element
-            x: 11
-            y: 9
-            text: qsTr("New Game")
-            font.pixelSize: 27
+            x: 14
+            y: 8
+            text: qsTr("Back")
+            font.pixelSize: 30
         }
     }
 

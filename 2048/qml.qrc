@@ -3,7 +3,7 @@
         <file>main.qml</file>
         <file>Grille.qml</file>
         <file>Tuile.qml</file>
-        <file>new_game.qml</file>
         <file>NewGame.qml</file>
+        <file>Back.qml</file>
     </qresource>
 </RCC>
