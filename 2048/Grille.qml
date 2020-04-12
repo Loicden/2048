@@ -12,16 +12,16 @@ Item {
         y: 0
         width: 360
         height: 360
-        color: "#ffffff"
+        color: "#bbada0"
 
         // Petits rectangles pour le style (motifs du damier)
         Rectangle {
             id: rectangle1
             x: 0
             y: 0
-            width: 90
-            height: 90
-            color: "#e8e8e8"
+            width: 80
+            height: 80
+            color: "#ffffff"
         }
 
         Rectangle {
@@ -30,7 +30,7 @@ Item {
             y: 0
             width: 90
             height: 90
-            color: "#e8e8e8"
+            color: "#ffffff"
         }
 
         Rectangle {
@@ -39,7 +39,7 @@ Item {
             y: 270
             width: 90
             height: 90
-            color: "#e8e8e8"
+            color: "#ffffff"
         }
 
         Rectangle {
@@ -48,7 +48,7 @@ Item {
             y: 180
             width: 90
             height: 90
-            color: "#e8e8e8"
+            color: "#ffffff"
         }
 
         Rectangle {
@@ -57,7 +57,7 @@ Item {
             y: 270
             width: 90
             height: 90
-            color: "#e8e8e8"
+            color: "#ffffff"
         }
 
         Rectangle {
@@ -66,7 +66,7 @@ Item {
             y: 90
             width: 90
             height: 90
-            color: "#e8e8e8"
+            color: "#ffffff"
         }
 
         Rectangle {
@@ -75,7 +75,7 @@ Item {
             y: 90
             width: 90
             height: 90
-            color: "#e8e8e8"
+            color: "#ffffff"
         }
 
         Rectangle {
@@ -84,7 +84,7 @@ Item {
             y: 180
             width: 90
             height: 90
-            color: "#e8e8e8"
+            color: "#ffffff"
         }
     }
 

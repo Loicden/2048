@@ -39,58 +39,107 @@ public:
     Q_INVOKABLE void newGame();
     Q_INVOKABLE void getlist();
     Q_INVOKABLE QString color(QString string);
+    Q_INVOKABLE QString colortext(QString string);
     void afficher();
     Grille GrilleG;
     int length;
     int cases[16];
-    QString colors[12]={"#ffffff","#eee4da","#f2b179","#f2b179","#f59563","#f67c60","#f65e3b","#edcf73","#edcc62","#edc850","#edc53f","#edc22d"};
-
+    QString colors[12]={"#cdc1b4","#eee4da","#f2b179","#f2b179","#f59563","#f67c60","#f65e3b","#edcf73","#edcc62","#edc850","#edc53f","#edc22d"};
+    QString colorstext[12]={"#474543","#474543","#474543","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4"};
     QString case0() {
+        if(cases[0]==0){
+            return "";
+        }
         return QString::number(cases[0]);
     }
     QString case1() {
+        if(cases[1]==0){
+            return "";
+        }
         return QString::number(cases[1]);
     }
     QString case2() {
+        if(cases[2]==0){
+            return "";
+        }
         return QString::number(cases[2]);
     }
     QString case3() {
+        if(cases[3]==0){
+            return "";
+        }
         return QString::number(cases[3]);
     }
     QString case4() {
+        if(cases[4]==0){
+            return "";
+        }
         return QString::number(cases[4]);
     }
     QString case5() {
+        if(cases[5]==0){
+            return "";
+        }
         return QString::number(cases[5]);
     }
     QString case6() {
+        if(cases[6]==0){
+            return "";
+        }
         return QString::number(cases[6]);
     }
     QString case7() {
+        if(cases[7]==0){
+            return "";
+        }
         return QString::number(cases[7]);
     }
     QString case8() {
+        if(cases[8]==0){
+            return "";
+        }
         return QString::number(cases[8]);
     }
     QString case9() {
+        if(cases[9]==0){
+            return "";
+        }
         return QString::number(cases[9]);
     }
     QString case10() {
+        if(cases[10]==0){
+            return "";
+        }
         return QString::number(cases[10]);
     }
     QString case11() {
+        if(cases[11]==0){
+            return "";
+        }
         return QString::number(cases[11]);
     }
     QString case12() {
+        if(cases[12]==0){
+            return "";
+        }
         return QString::number(cases[12]);
     }
     QString case13() {
+        if(cases[13]==0){
+            return "";
+        }
         return QString::number(cases[13]);
     }
     QString case14() {
+        if(cases[14]==0){
+            return "";
+        }
         return QString::number(cases[14]);
     }
     QString case15() {
+        if(cases[15]==0){
+            return "";
+        }
         return QString::number(cases[15]);
     }
     QString Getscore() {

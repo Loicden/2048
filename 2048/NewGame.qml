@@ -10,17 +10,20 @@ Item {
         y: 0
         width: 150
         height: 50
-        color: "#d5d9ea"
-        radius: 13
+        color: mouseAreaNewGame.pressed ? "#d5d9ea" : "#cdc1b4"
+        radius: 5
         border.color: "#a6a9d0"
-        border.width: 3
+        border.width: 0
 
         Text {
             id: element
-            x: 11
-            y: 9
+            x: 17
+            y: 12
+            font.family : "Gotham Ultra"
             text: qsTr("New Game")
-            font.pixelSize: 27
+            font.pixelSize: 22
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
         }
     }
 

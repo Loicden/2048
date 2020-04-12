@@ -12,6 +12,8 @@ int main(int argc, char *argv[])
 {
     Grille Grille2048=Grille();
     Grille2048.newGame();
+    Grille2048.changeval(1,2,256);
+    Grille2048.setscore(120);
     QGrille GrilleQML(Grille2048);
     GrilleQML.afficher();
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);

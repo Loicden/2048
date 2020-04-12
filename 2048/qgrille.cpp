@@ -28,7 +28,8 @@ void QGrille::coup(int coup){
 
 void QGrille::newGame(){
     GrilleG.newGame();
-    GrilleG.afficherGrille();
+    getlist();
+    afficher();
 }
 
 void QGrille::getlist(){
@@ -49,16 +50,24 @@ void QGrille::afficher(){
     for(k=0;k<length;k++){
         cout<<cases[k];
     }
+    cout<<endl;
 }
 
 QString QGrille::color(QString string){
     int k=string.toInt();
-
-    cout<<k;
     if (k==0){
         return colors[0];
 
     }
-
     return colors[int(log2(k))];
 }
+
+QString QGrille::colortext(QString string){
+    int k=string.toInt();
+    if (k==0){
+        return colorstext[0];
+
+    }
+    return colorstext[int(log2(k))];
+}
+

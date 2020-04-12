@@ -11,20 +11,21 @@ Item {
         width: 90
         height: 90
         color: vueObjetCpt.color(elementText)
-        radius: 13
-        border.width: 2
-        border.color: vueObjetCpt.color(elementText)
+        radius: 0
+        border.width: 4
+        border.color: "#bbada0"
 
         Text {
             id: element
             x: 23
             y: 21
             width: 44
+            color: vueObjetCpt.colortext(elementText)
             text: qsTr("0")
-            font.family: "Verdana"
+            font.family: "Gotham Ultra"
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 40
+            font.pixelSize: 30
         }
     }
 

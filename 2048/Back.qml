@@ -9,17 +9,20 @@ Item {
         y: 0
         width: 90
         height: 50
-        color: "#d5d9ea"
-        radius: 13
+        color: mouseAreaBack.pressed ? "#d5d9ea" : "#cdc1b4"
+        radius: 5
         border.color: "#a6a9d0"
-        border.width: 3
+        border.width: 0
 
         Text {
             id: element
-            x: 14
-            y: 8
+            x: 15
+            y: 12
+            font.family: "Gotham Ultra"
             text: qsTr("Back")
-            font.pixelSize: 30
+            font.pixelSize: 22
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
         }
     }
 

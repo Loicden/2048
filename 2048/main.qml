@@ -4,6 +4,7 @@ import QtQuick.Window 2.12
 Window {
     id: window
     visible: true
+    color: "#ffffff"
     width: 400
     height: 535
     title: qsTr("Jeu du 2048")
@@ -20,6 +21,7 @@ Window {
 
     Grille {
         id: grille
+
         x: 20
         y: 80
     }
@@ -152,6 +154,7 @@ Window {
         y: 23
         text: qsTr("Score :")
         font.pixelSize: 30
+        font.family: "Gotham Ultra"
     }
 
     Text {
@@ -160,6 +163,7 @@ Window {
         y: 23
         text: vueObjetCpt.QScore
         font.pixelSize: 30
+        font.family: "Gotham Ultra"
     }
 
     NewGame {
@@ -170,11 +174,12 @@ Window {
 
         MouseArea {
             id: mouseAreaNewGame
-            x: 250
+            x: 0
             y: 0
             width: 150
             height: 50
-            onClicked: vueObjetCpt.newGame()
+            onClicked:{
+                vueObjetCpt.newGame()}
         }
     }
 
