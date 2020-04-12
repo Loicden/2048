@@ -7,29 +7,29 @@
 class Grille{
 public:
     Grille(int Dimension=4, int Score=0, int TempScore=0);
-    void AfficherGrille();
-    void Initialisation();
-    void RandCase(bool Newturn = true);
-    void Changeval(int i, int j, int val);
-    int Getval(int i, int j);
-    int GetScore();
-    int GetTempScore();
-    int GetDim();
-    void Setscore(int score);
-    bool TestMove(int i, int j, int newi, int newj);
-    bool TestFuse(int i, int j, int newi, int newj);
-    void Move(int i, int j, int newi, int newj);
-    void Reset();
-    void Fuse(int i, int j, int newi, int newj);
-    bool IsemptyG(int i, int j);
-    void Coup(int Direction);
-    void Test();
-    bool Canfuse(int i, int j);
-    void Resetfuse();
+    void afficherGrille();
+    void initialisation();
+    void randCase(bool Newturn = true);
+    void changeval(int i, int j, int val);
+    int getval(int i, int j);
+    int getScore();
+    int getTempScore();
+    int getDim();
+    void setscore(int score);
+    bool testMove(int i, int j, int newi, int newj);
+    bool testFuse(int i, int j, int newi, int newj);
+    void move(int i, int j, int newi, int newj);
+    void reset();
+    void fuse(int i, int j, int newi, int newj);
+    bool isemptyG(int i, int j);
+    void coup(int Direction);
+    void test();
+    bool canfuse(int i, int j);
+    void resetfuse();
     void newGame();
-    void Back();
-    void ShiftMemoryLeft();
-    void ShiftMemoryRight();
+    void back();
+    void shiftMemoryLeft();
+    void shiftMemoryRight();
 
 
 

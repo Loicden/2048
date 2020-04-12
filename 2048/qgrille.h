@@ -10,8 +10,8 @@ class QGrille : public QObject
     Q_OBJECT
 public:
     QGrille(Grille GrilleG=Grille(), QObject *parent=nullptr);
-    Q_INVOKABLE void Coup(int coup);
-    Q_INVOKABLE void NewGame();
+    Q_INVOKABLE void coup(int coup);
+    Q_INVOKABLE void newGame();
     Q_INVOKABLE void getlist();
     void afficher();
     Grille GrilleG;

@@ -23,29 +23,29 @@ Grille::Grille(int Dim, int Sco, int TempSco)
         *Dimension=4;
     }
 
-    Setscore(Sco);
+    setscore(Sco);
     *Tempscore=TempSco;
     Win=0;
     Case CasesN[Dim][Dim];
     Case CasesAvant[Dim][Dim][5];
-    Initialisation();
+    initialisation();
 }
 
-bool Grille::Canfuse(int i, int j){
-    return CasesN[i][j].Getfuse();
+bool Grille::canfuse(int i, int j){
+    return CasesN[i][j].getfuse();
 }
 
-void Grille::Resetfuse(){
+void Grille::resetfuse(){
     int k;
     int j;
     for(k=0;k<*Dimension+1; k++){
         for(j=0;j<*Dimension+1;j++){
-            CasesN[k][j].Setfuse(true);
+            CasesN[k][j].setfuse(true);
         }
     }
 }
 
-void Grille::Initialisation(){
+void Grille::initialisation(){
     int i;
     int j;
     for(i=0; i<*Dimension+1; i++){
@@ -60,7 +60,7 @@ void Grille::Initialisation(){
 
 }
 
-void Grille::RandCase(bool Newt){
+void Grille::randCase(bool Newt){
   int value;
 
   /* initialize random seed: */
@@ -86,53 +86,53 @@ void Grille::RandCase(bool Newt){
 //      cout<<"y est "<<randy<<endl;
 
   }
-  while (CasesN[randx][randy].IsEmpty() == false);
-  Changeval(randx,randy,value);
+  while (CasesN[randx][randy].isEmpty() == false);
+  changeval(randx,randy,value);
 }
 
 
 
 
-void Grille::AfficherGrille(){
+void Grille::afficherGrille(){
     int i;
     int j;
     for(i=0;i<*Dimension;i++){
         for(j=0;j<*Dimension;j++){
-            cout<<CasesN[i][j].GetValeur()<<" ";
+            cout<<CasesN[i][j].getValeur()<<" ";
         }
         cout<<endl;
     }
     cout<<endl;
 }
 
-void Grille::Reset(){
+void Grille::reset(){
     int i;
     int j;
     for(i=0; i<*Dimension+1; i++){
         for(j=0;j<*Dimension+1; j++){
-            CasesN[i][j].SetValeur(0);
+            CasesN[i][j].setValeur(0);
         }
     }
 }
 
-void Grille::Changeval(int i, int j, int val){
+void Grille::changeval(int i, int j, int val){
     CasesN[i][j]=Case(i,j,val);
 }
 
 
-int Grille::GetScore(){
+int Grille::getScore(){
     return Score;
 }
 
-int Grille::GetTempScore(){
+int Grille::getTempScore(){
     return *Tempscore;
 }
 
-int Grille::GetDim(){
+int Grille::getDim(){
     return *Dimension;
 }
 
-void Grille::Setscore(int score){
+void Grille::setscore(int score){
     Score=score;
 }
 
@@ -140,17 +140,17 @@ void Grille::Setscore(int score){
 
 
 
-bool Grille::TestMove(int i, int j, int newi, int newj){
+bool Grille::testMove(int i, int j, int newi, int newj){
     Case TriedTile;
     TriedTile=CasesN[i][j];
-    if (TriedTile.GetValeur()==0){
+    if (TriedTile.getValeur()==0){
         return false;
     }
     if(i!=newi && j!=newj){
         return false;
 
     }
-    else if (CasesN[newi][newj].GetValeur()==0){
+    else if (CasesN[newi][newj].getValeur()==0){
         return true;
     }
     else if (newi < 0 or newj < 0 or newi > *Dimension-1 or newj > *Dimension-1){
@@ -162,71 +162,71 @@ bool Grille::TestMove(int i, int j, int newi, int newj){
 
 }
 
-bool Grille::TestFuse(int i, int j, int newi, int newj){
+bool Grille::testFuse(int i, int j, int newi, int newj){
     Case TriedTile;
     Case NextTile;
     TriedTile=CasesN[i][j];
     NextTile=CasesN[newi][newj];
-    if(NextTile.Getfuse()==false){
+    if(NextTile.getfuse()==false){
         return false;
     }
-    if (TriedTile.GetValeur()==0){
+    if (TriedTile.getValeur()==0){
         return false;
     }
     if(i!=newi && j!=newj){
         return false;}
-    else if (TriedTile.GetValeur()==NextTile.GetValeur()){
+    else if (TriedTile.getValeur()==NextTile.getValeur()){
         return true;
     }
     return false;
 
 }
 
-void Grille::Move(int i, int j, int newi, int newj){
+void Grille::move(int i, int j, int newi, int newj){
 
-        int newval=CasesN[i][j].GetValeur();
-        CasesN[i][j].SetValeur(0);
+        int newval=CasesN[i][j].getValeur();
+        CasesN[i][j].setValeur(0);
         if (newi>*Dimension-1){
-            CasesN[*Dimension-1][newj].SetValeur(newval);
+            CasesN[*Dimension-1][newj].setValeur(newval);
 
         }
         else if (newi<0){
-            CasesN[0][newj].SetValeur(newval);
+            CasesN[0][newj].setValeur(newval);
 
         }
         else if(newj>*Dimension-1){
-            CasesN[newi][*Dimension-1].SetValeur(newval);
+            CasesN[newi][*Dimension-1].setValeur(newval);
 
         }
         else if (newj<0){
-            CasesN[newi][0].SetValeur(newval);
+            CasesN[newi][0].setValeur(newval);
 
         }
         else {
-            CasesN[newi][newj].SetValeur(newval);
+            CasesN[newi][newj].setValeur(newval);
         }
 }
 
-void Grille::Fuse(int i, int j, int newi, int newj){
-    int newval=2*CasesN[i][j].GetValeur();
-    CasesN[newi][newj].SetValeur(newval);
-    CasesN[i][j].SetValeur(0);
-    CasesN[newi][newj].Setfuse(false);
+void Grille::fuse(int i, int j, int newi, int newj){
+    int newval=2*CasesN[i][j].getValeur();
+    CasesN[newi][newj].setValeur(newval);
+    CasesN[i][j].setValeur(0);
+    CasesN[newi][newj].setfuse(false);
     if(newval==2048){
         Win=1;
     }
-    Setscore(GetScore()+newval);
+    setscore(getScore()+newval);
 
 
 
 }
 
 
-bool Grille::IsemptyG(int i, int j){
-    return CasesN[i][j].IsEmpty();
+bool Grille::isemptyG(int i, int j){
+    return CasesN[i][j].isEmpty();
 }
 
-void Grille::Coup(int Dir){
+void Grille::coup(int Dir){
     int i;
     int j;
     int Tab[] = {1,2,3,4};
@@ -241,24 +241,24 @@ void Grille::Coup(int Dir){
             else if (Dir == 3){x_it = Tab[j]-1; y_it = Tab[i]-1;}
             else{x_it = Tab_inv[j]-1; y_it = Tab[i]-1;}
 
-//            cout<<"On observe la case : "<<x_it<<";"<<y_it<<" de valeur "<<CasesN[x_it][y_it].GetValeur()<<endl;
+//            cout<<"On observe la case : "<<x_it<<";"<<y_it<<" de valeur "<<CasesN[x_it][y_it].getValeur()<<endl;
 
             int deplacement = 1;
-            if (CasesN[x_it][y_it].GetValeur() != 0){
+            if (CasesN[x_it][y_it].getValeur() != 0){
                 if (Dir == 1){
                     if (y_it-(deplacement-1) != 0){
 //                        cout<<endl;
 //                        cout<<"On deplace a gauche"<<endl;
-                        while(TestMove(x_it, y_it, x_it, y_it-(deplacement))){
+                        while(testMove(x_it, y_it, x_it, y_it-(deplacement))){
                                 deplacement += 1;
 //                                cout<<"On deplace de "<<deplacement<<endl;
                             }
-                        if (TestFuse(x_it, y_it, x_it, y_it-(deplacement))){
-                            Fuse(x_it, y_it, x_it, y_it-(deplacement));
+                        if (testFuse(x_it, y_it, x_it, y_it-(deplacement))){
+                            fuse(x_it, y_it, x_it, y_it-(deplacement));
 //                            cout<<"On fusionne avec "<<x_it<<";"<<y_it-(deplacement)<<endl;
                         }
                         else if (deplacement != 1){
-                            Move(x_it, y_it, x_it, y_it-(deplacement-1));
+                            move(x_it, y_it, x_it, y_it-(deplacement-1));
 //                            cout<<"On bouge sur "<<x_it<<";"<<y_it-(deplacement-1)<<endl;
                         }
                     }
@@ -270,16 +270,16 @@ void Grille::Coup(int Dir){
                     if (y_it+(deplacement-1) != 3){
 //                        cout<<endl;
 //                        cout<<"On deplace a droite"<<endl;
-                        while(TestMove(x_it, y_it, x_it, y_it+(deplacement)) and y_it+(deplacement) < *Dimension){
+                        while(testMove(x_it, y_it, x_it, y_it+(deplacement)) and y_it+(deplacement) < *Dimension){
                                 deplacement += 1;
 //                                cout<<"On deplace de "<<deplacement<<endl;
                             }
-                        if (TestFuse(x_it, y_it, x_it, y_it+(deplacement))){
-                            Fuse(x_it, y_it, x_it, y_it+(deplacement));
+                        if (testFuse(x_it, y_it, x_it, y_it+(deplacement))){
+                            fuse(x_it, y_it, x_it, y_it+(deplacement));
 //                            cout<<"On fusionne avec "<<x_it<<";"<<y_it+(deplacement)<<endl;
                         }
                         else if (deplacement != 1){
-                            Move(x_it, y_it, x_it, y_it+(deplacement-1));
+                            move(x_it, y_it, x_it, y_it+(deplacement-1));
 //                            cout<<"On bouge sur "<<x_it<<";"<<y_it+(deplacement-1)<<endl;
                         }
                     }
@@ -291,16 +291,16 @@ void Grille::Coup(int Dir){
                     if (x_it-(deplacement-1) != 0){
 //                        cout<<endl;
 //                        cout<<"On deplace en haut"<<endl;
-                        while(TestMove(x_it, y_it, x_it-(deplacement), y_it)){
+                        while(testMove(x_it, y_it, x_it-(deplacement), y_it)){
                                 deplacement += 1;
 //                                cout<<"On deplace de "<<deplacement<<endl;
                             }
-                        if (TestFuse(x_it, y_it, x_it-(deplacement), y_it)){
-                            Fuse(x_it, y_it, x_it-(deplacement), y_it);
+                        if (testFuse(x_it, y_it, x_it-(deplacement), y_it)){
+                            fuse(x_it, y_it, x_it-(deplacement), y_it);
 //                            cout<<"On fusionne avec "<<x_it-(deplacement)<<";"<<y_it<<endl;
                         }
                         else if (deplacement != 1){
-                            Move(x_it, y_it, x_it-(deplacement-1), y_it);
+                            move(x_it, y_it, x_it-(deplacement-1), y_it);
 //                            cout<<"On bouge sur "<<x_it-(deplacement-1)<<";"<<y_it<<endl;
                         }
                     }
@@ -312,16 +312,16 @@ void Grille::Coup(int Dir){
                     if (x_it+(deplacement-1) != 3){
 //                        cout<<endl;
 //                        cout<<"On deplace en bas"<<endl;
-                        while(TestMove(x_it, y_it, x_it+(deplacement), y_it) and x_it+(deplacement) < *Dimension){
+                        while(testMove(x_it, y_it, x_it+(deplacement), y_it) and x_it+(deplacement) < *Dimension){
                                 deplacement += 1;
 //                                cout<<"On deplace de "<<deplacement<<endl;
                             }
-                        if (TestFuse(x_it, y_it, x_it+(deplacement), y_it)){
-                            Fuse(x_it, y_it, x_it+(deplacement), y_it);
+                        if (testFuse(x_it, y_it, x_it+(deplacement), y_it)){
+                            fuse(x_it, y_it, x_it+(deplacement), y_it);
 //                            cout<<"On fusionne avec "<<x_it+(deplacement)<<";"<<y_it<<endl;
                         }
                         else if (deplacement != 1){
-                            Move(x_it, y_it, x_it+(deplacement-1), y_it);
+                            move(x_it, y_it, x_it+(deplacement-1), y_it);
 //                            cout<<"On bouge sur "<<x_it+(deplacement-1)<<";"<<y_it<<endl;
                         }
                     }
@@ -333,8 +333,8 @@ void Grille::Coup(int Dir){
         }
     }
     cout<<endl;
-    RandCase();
-    Resetfuse();
+    randCase();
+    resetfuse();
     for(i=0;i<*Dimension;i++){
 
     }
@@ -344,20 +344,20 @@ void Grille::Coup(int Dir){
     }
 }
 
-int Grille::Getval(int i, int j){
-    return(CasesN[i][j].GetValeur());
+int Grille::getval(int i, int j){
+    return(CasesN[i][j].getValeur());
 }
 
 
 void Grille::newGame(){
-    Reset();
-    Resetfuse();
-    Setscore(0);
-    RandCase(false);
-    RandCase(false);
+    reset();
+    resetfuse();
+    setscore(0);
+    randCase(false);
+    randCase(false);
 }
 
-void Grille::ShiftMemoryLeft(){
+void Grille::shiftMemoryLeft(){
     int i;
     int j;
     for (i=0;i<*Dimension-1;i++){
@@ -375,7 +375,7 @@ void Grille::ShiftMemoryLeft(){
     }
 }
 
-void Grille::ShiftMemoryRight(){
+void Grille::shiftMemoryRight(){
     int i;
     int j;
     for (i=0;i<*Dimension-1;i++){

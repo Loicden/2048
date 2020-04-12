@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_QGrille_t {
-    QByteArrayData data[6];
-    char stringdata0[35];
+    QByteArrayData data[5];
+    char stringdata0[30];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,14 +33,13 @@ struct qt_meta_stringdata_QGrille_t {
 static const qt_meta_stringdata_QGrille_t qt_meta_stringdata_QGrille = {
     {
 QT_MOC_LITERAL(0, 0, 7), // "QGrille"
-QT_MOC_LITERAL(1, 8, 4), // "Coup"
+QT_MOC_LITERAL(1, 8, 4), // "coup"
 QT_MOC_LITERAL(2, 13, 0), // ""
-QT_MOC_LITERAL(3, 14, 4), // "coup"
-QT_MOC_LITERAL(4, 19, 7), // "NewGame"
-QT_MOC_LITERAL(5, 27, 7) // "getlist"
+QT_MOC_LITERAL(3, 14, 7), // "newGame"
+QT_MOC_LITERAL(4, 22, 7) // "getlist"
 
     },
-    "QGrille\0Coup\0\0coup\0NewGame\0getlist"
+    "QGrille\0coup\0\0newGame\0getlist"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,11 +58,11 @@ static const uint qt_meta_data_QGrille[] = {
 
  // methods: name, argc, parameters, tag, flags
        1,    1,   29,    2, 0x02 /* Public */,
-       4,    0,   32,    2, 0x02 /* Public */,
-       5,    0,   33,    2, 0x02 /* Public */,
+       3,    0,   32,    2, 0x02 /* Public */,
+       4,    0,   33,    2, 0x02 /* Public */,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Int,    1,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -76,8 +75,8 @@ void QGrille::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<QGrille *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->Coup((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->NewGame(); break;
+        case 0: _t->coup((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->newGame(); break;
         case 2: _t->getlist(); break;
         default: ;
         }

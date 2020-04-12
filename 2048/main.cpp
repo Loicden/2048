@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
+    engine.rootContext()->setContextProperty("vueObjetCpt", &GrilleQML);
     engine.load(url);
 
     return app.exec();
