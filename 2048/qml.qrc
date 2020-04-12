@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>Grille.qml</file>
+        <file>Damier.qml</file>
         <file>Tuile.qml</file>
         <file>new_game.qml</file>
         <file>NewGame.qml</file>

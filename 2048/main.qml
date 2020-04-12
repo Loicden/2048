@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import com.myself 1.0
 
 Window {
     id: window
@@ -13,13 +14,12 @@ Window {
     Keys.onPressed: {
         switch (event.key) {
         case Qt.Key_R:
-            new Grille2048.NewGame();
             break;
         }
     }
 
-    Grille {
-        id: grille
+    Damier {
+        id: damier
         x: 20
         y: 80
     }
@@ -168,7 +168,7 @@ Window {
             y: 0
             width: 150
             height: 50
-            onClicked: Grille2048.NewGame()
+            onClicked: grille2048.newGame()
         }
     }
 

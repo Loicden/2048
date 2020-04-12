@@ -1,34 +1,35 @@
 #ifndef GRILLE_H
 #define GRILLE_H
 #include "case.h"
+#include <QObject>
 
 
-class Grille
-{
+class Grille : public QObject{
 public:
-    Grille(int Dimension=4,int Score=0, int Tempscore=0);
-    void AfficherGrille();
-    void Initialisation();
-    void RandCase(bool Newturn = true);
-    void Changeval(int i, int j, int val);
-    int GetScore();
-    int GetTempScore();
-    int GetDim();
-    void Setscore(int score);
-    bool TestMove(int i, int j, int newi, int newj);
-    bool TestFuse(int i, int j, int newi, int newj);
-    void Move(int i, int j, int newi, int newj);
-    void Reset();
-    void Fuse(int i, int j, int newi, int newj);
-    bool IsemptyG(int i, int j);
-    void Coup(int Direction);
-    void Test();
-    bool Canfuse(int i, int j);
-    void Resetfuse();
-    void NewGame();
-    void Back();
-    void ShiftMemoryLeft();
-    void ShiftMemoryRight();
+    Grille(int Dimension=4, int Score=0, int TempScore=0);
+
+    Q_INVOKABLE void AfficherGrille();
+    Q_INVOKABLE void Initialisation();
+    Q_INVOKABLE void RandCase(bool Newturn = true);
+    Q_INVOKABLE void Changeval(int i, int j, int val);
+    Q_INVOKABLE int GetScore();
+    Q_INVOKABLE int GetTempScore();
+    Q_INVOKABLE int GetDim();
+    Q_INVOKABLE void Setscore(int score);
+    Q_INVOKABLE bool TestMove(int i, int j, int newi, int newj);
+    Q_INVOKABLE bool TestFuse(int i, int j, int newi, int newj);
+    Q_INVOKABLE void Move(int i, int j, int newi, int newj);
+    Q_INVOKABLE void Reset();
+    Q_INVOKABLE void Fuse(int i, int j, int newi, int newj);
+    Q_INVOKABLE bool IsemptyG(int i, int j);
+    Q_INVOKABLE void Coup(int Direction);
+    Q_INVOKABLE void Test();
+    Q_INVOKABLE bool Canfuse(int i, int j);
+    Q_INVOKABLE void Resetfuse();
+    Q_INVOKABLE void newGame();
+    Q_INVOKABLE void Back();
+    Q_INVOKABLE void ShiftMemoryLeft();
+    Q_INVOKABLE void ShiftMemoryRight();
 
 
 
