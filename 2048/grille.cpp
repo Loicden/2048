@@ -1,6 +1,7 @@
 #include "grille.h"
 #include <iostream>
 #include "case.h"
+#include "grille.h"
 #include <QObject>
 
 #include <stdio.h>      /* printf, scanf, puts, NULL */
@@ -338,9 +339,15 @@ void Grille::Coup(int Dir){
 
     }
     if(Win){
-        cout<<"vous avez gagné!"<<endl;
+        cout<<"bravo!";
+        newGame();
     }
 }
+
+int Grille::Getval(int i, int j){
+    return(CasesN[i][j].GetValeur());
+}
+
 
 void Grille::newGame(){
     Reset();
