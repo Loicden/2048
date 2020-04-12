@@ -13,7 +13,7 @@ Window {
     Keys.onPressed: {
         switch (event.key) {
         case Qt.Key_R:
-            Grille2048.NewGame();
+            new Grille2048.NewGame();
             break;
         }
     }
