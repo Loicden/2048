@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import com.myself 1.0
 
 Window {
     id: window
