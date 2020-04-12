@@ -3,6 +3,7 @@ import QtQuick 2.0
 Item {
     width: 360
     height: 360
+    // Grand rectangle (support de jeu, damier)
     Rectangle {
         id: rectangle
         x: 0
@@ -11,6 +12,7 @@ Item {
         height: 360
         color: "#ffffff"
 
+        // Petits rectangles pour le style (motifs du damier)
         Rectangle {
             id: rectangle1
             x: 0

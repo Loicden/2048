@@ -10,16 +10,13 @@ Window {
     property alias elementText: element.text
     property alias tuile1ElementText: tuile1.elementText
 
-
-    /*
     Keys.onPressed: {
         switch (event.key) {
         case Qt.Key_R:
-            Grille.NewGame();
+            Grille2048.NewGame();
             break;
         }
     }
-    */
 
     Grille {
         id: grille
@@ -171,7 +168,7 @@ Window {
             y: 0
             width: 150
             height: 50
-            onClicked: console.log("New Game")
+            onClicked: Grille2048.NewGame()
         }
     }
 
