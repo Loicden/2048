@@ -25,7 +25,10 @@ public:
     void Test();
     bool Canfuse(int i, int j);
     void Resetfuse();
-    void newgame();
+    void NewGame();
+    void Back();
+    void ShiftMemoryLeft();
+    void ShiftMemoryRight();
 
 
 

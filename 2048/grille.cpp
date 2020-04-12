@@ -25,9 +25,9 @@ Grille::Grille(int Dim, int Sco, int TempSco)
     Setscore(Sco);
     *Tempscore=TempSco;
     Win=0;
-
     Case CasesN[Dim][Dim];
     Case CasesAvant[Dim][Dim][5];
+
 
 
 
@@ -342,15 +342,54 @@ void Grille::Coup(int Dir){
     cout<<endl;
     RandCase();
     Resetfuse();
+    for(i=0;i<*Dimension;i++){
+
+    }
     if(Win){
         cout<<"vous avez gagné!"<<endl;
     }
 }
 
-void Grille::newgame(){
+void Grille::NewGame(){
     Reset();
     Resetfuse();
     Setscore(0);
     RandCase(false);
     RandCase(false);
+}
+
+void Grille::ShiftMemoryLeft(){
+    int i;
+    int j;
+    for (i=0;i<*Dimension-1;i++){
+        for(j=0;j<*Dimension-1;j++){
+            CasesN[i][j]=CasesAvant[i][j][0];
+        }
+    }
+    int k;
+    for(k=5;k>0;k--){
+        for(i=0;i<*Dimension+1;i++){
+            for(j=0;j<*Dimension+1;j++){
+                CasesAvant[i][j][k]=CasesAvant[i][j][k-1];
+            }
+        }
+    }
+}
+
+void Grille::ShiftMemoryRight(){
+    int i;
+    int j;
+    for (i=0;i<*Dimension-1;i++){
+        for(j=0;j<*Dimension-1;j++){
+            CasesAvant[i][j][0]=CasesN[i][j];
+        }
+    }
+    int k;
+    for(k=0;k<5;k++){
+        for(i=0;i<*Dimension+1;i++){
+            for(j=0;j<*Dimension+1;j++){
+                CasesAvant[i][j][k]=CasesAvant[i][j][k+1];
+            }
+        }
+    }
 }
