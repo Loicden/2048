@@ -2,7 +2,7 @@
 #define GRILLE_H
 #include "case.h"
 #include <QObject>
-
+#include <string>
 
 class Grille{
 public:

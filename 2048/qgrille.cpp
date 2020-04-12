@@ -5,6 +5,8 @@
 #include "case.h"
 #include "grille.h"
 #include "qgrille.h"
+#include <string>
+#include <math.h>
 using namespace std;
 
 
@@ -47,4 +49,16 @@ void QGrille::afficher(){
     for(k=0;k<length;k++){
         cout<<cases[k];
     }
+}
+
+QString QGrille::color(QString string){
+    int k=string.toInt();
+
+    cout<<k;
+    if (k==0){
+        return colors[0];
+
+    }
+
+    return colors[int(log2(k))];
 }

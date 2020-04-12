@@ -10,13 +10,14 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QGuiApplication app(argc, argv);
-    QQmlApplicationEngine engine;
     Grille Grille2048=Grille();
     Grille2048.newGame();
     QGrille GrilleQML(Grille2048);
+    GrilleQML.afficher();
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QGuiApplication app(argc, argv);
+    QQmlApplicationEngine engine;
+
 //    GrilleQML.GrilleG.AfficherGrille();
 //    GrilleQML.Coup(2);
 //    GrilleQML.GrilleG.AfficherGrille();

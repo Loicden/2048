@@ -28,7 +28,7 @@ Window {
         id: tuile1
         x: 20
         y: 80
-        elementText: qsTr("8")
+        elementText: vueObjetCpt.case0
         visible: {
             if (0 === 0)
                 true
@@ -42,7 +42,7 @@ Window {
         id: tuile2
         x: 110
         y: 80
-        elementText: vueObjetCpt.GrilleQML[1]
+        elementText: vueObjetCpt.case1
     }
 
 
@@ -50,14 +50,15 @@ Window {
         id: tuile3
         x: 200
         y: 80
-        elementText: vueObjetCpt.GrilleQML[2]
+
+        elementText: vueObjetCpt.case2
     }
 
     Tuile {
         id: tuile4
         x: 290
         y: 80
-        elementText: vueObjetCpt.GrilleQML[3]
+        elementText: vueObjetCpt.case3
     }
 
 
@@ -66,84 +67,83 @@ Window {
         id: tuile5
         x: 20
         y: 170
-        elementText: vueObjetCpt.GrilleQML[4]
+        elementText: vueObjetCpt.case4
     }
 
     Tuile {
         id: tuile6
         x: 110
         y: 170
-        elementText: vueObjetCpt.GrilleQML[5]
+        elementText: vueObjetCpt.case5
     }
 
     Tuile {
         id: tuile7
         x: 200
         y: 170
-        elementText: vueObjetCpt.GrilleQML[6]
+        elementText: vueObjetCpt.case6
     }
 
     Tuile {
         id: tuile8
         x: 290
         y: 170
-        elementText: vueObjetCpt.GrilleQML[7]
+        elementText: vueObjetCpt.case7
     }
 
     Tuile {
         id: tuile9
         x: 20
         y: 260
-        elementText: vueObjetCpt.GrilleQML[8]
+        elementText: vueObjetCpt.case8
     }
 
     Tuile {
         id: tuile10
         x: 110
         y: 260
-        elementText: vueObjetCpt.GrilleQML[9]
+        elementText: vueObjetCpt.case9
     }
 
     Tuile {
         id: tuile11
         x: 200
         y: 260
-        elementText: vueObjetCpt.GrilleQML[10]
+        elementText: vueObjetCpt.case10
     }
 
     Tuile {
         id: tuile12
         x: 290
         y: 260
-        elementText: vueObjetCpt.GrilleQML[11]
+        elementText: vueObjetCpt.case11
     }
 
     Tuile {
         id: tuile13
         x: 20
         y: 350
-        elementText: vueObjetCpt.GrilleQML[12]
+        elementText: vueObjetCpt.case12
     }
 
     Tuile {
         id: tuile14
         x: 110
         y: 350
-        elementText: vueObjetCpt.GrilleQML[13]
+        elementText: vueObjetCpt.case13
     }
-
     Tuile {
         id: tuile15
         x: 200
         y: 350
-        elementText: vueObjetCpt.GrilleQML[14]
+        elementText: vueObjetCpt.case14
     }
 
     Tuile {
         id: tuile16
         x: 290
         y: 350
-        elementText: vueObjetCpt.GrilleQML[15]
+        elementText: vueObjetCpt.case15
     }
 
     Text {
@@ -158,7 +158,7 @@ Window {
         id: element
         x: 247
         y: 23
-        text: vueObjetCpt.CcoreQML
+        text: vueObjetCpt.QScore
         font.pixelSize: 30
     }
 
@@ -194,20 +194,21 @@ Window {
         }
     }
 
-    Keys.onPressed: {
-        switch (event.key) {
-        case Qt.Key_Left:
-            vueObjetCpt.coup(1);
-            break;
-        case Qt.Key_Right:
-            vueObjetCpt.coup(2);
-            break;
-        case Qt.Key_Up:
-            vueObjetCpt.coup(3);
-            break;
-        case Qt.Key_Down:
-            vueObjetCpt.coup(4);
-            break;
-        }
-    }
+//    Keys.onPressed: {
+//        switch (event.key) {
+//        case Qt.Key_Left:
+//            vueObjetCpt.coup(1);
+//            break;
+//        case Qt.Key_Right:
+//            vueObjetCpt.coup(2);
+//            break;
+//        case Qt.Key_Up:
+//            vueObjetCpt.coup(3);
+//            break;
+//        case Qt.Key_Down:
+//            vueObjetCpt.coup(4);
+//            break;
+//        }
+//    }
 }
+

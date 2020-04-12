@@ -3,6 +3,7 @@
 //#include "Grille.h"
 #include <QObject>
 #include <QWidget>
+#include <string>
 
 class Case
 {

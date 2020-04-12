@@ -10,10 +10,10 @@ Item {
         y: 0
         width: 90
         height: 90
-        color: "#ffca91"
+        color: vueObjetCpt.color(elementText)
         radius: 13
         border.width: 2
-        border.color: "#ffa33f"
+        border.color: vueObjetCpt.color(elementText)
 
         Text {
             id: element
