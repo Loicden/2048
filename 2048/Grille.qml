@@ -1,10 +1,12 @@
 import QtQuick 2.0
 
 Item {
+    width: 360
+    height: 360
     Rectangle {
         id: rectangle
-        x: 140
-        y: 78
+        x: 0
+        y: 0
         width: 360
         height: 360
         color: "#ffffff"

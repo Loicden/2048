@@ -35,3 +35,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     case.h \
     grille.h
+
+DISTFILES += \
+    ../new_game.qml

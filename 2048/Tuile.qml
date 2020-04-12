@@ -1,10 +1,13 @@
 import QtQuick 2.0
 
 Item {
+    width: 90
+    height: 90
+    property alias elementText: element.text
     Rectangle {
         id: rectangle
-        x: 275
-        y: 195
+        x: 0
+        y: 0
         width: 90
         height: 90
         color: "#ffca91"
@@ -17,7 +20,7 @@ Item {
             x: 23
             y: 21
             width: 44
-            text: qsTr("Text")
+            text: qsTr("Oui")
             font.family: "Verdana"
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
