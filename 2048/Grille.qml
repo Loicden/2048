@@ -1,5 +1,7 @@
 import QtQuick 2.0
 
+// Damier sur lequel on va positionner les cases
+
 Item {
     width: 360
     height: 360

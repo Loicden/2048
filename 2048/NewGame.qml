@@ -3,7 +3,7 @@ import QtQuick 2.0
 Item {
     width: 150
     height: 50
-    property alias elementText: element.text
+    property alias elementText: element.text // Permet d'avoir accès au texte (Inutile ici car le texte ne change pas)
     Rectangle {
         id: rectangle
         x: 0

@@ -3,7 +3,7 @@ import QtQuick 2.0
 Item {
     width: 90
     height: 90
-    property alias elementText: element.text
+    property alias elementText: element.text // Permet d'avoir accès au texte (valeur des cases)
     Rectangle {
         id: rectangle
         x: 0
@@ -20,7 +20,7 @@ Item {
             x: 23
             y: 21
             width: 44
-            text: qsTr("Oui")
+            text: qsTr("0")
             font.family: "Verdana"
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter

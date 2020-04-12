@@ -10,14 +10,11 @@ Window {
     property alias elementText: element.text
     property alias tuile1ElementText: tuile1.elementText
 
-    Keys.onPressed: {
+    Keys.onPressed: {           // Nouvelle partie quand on appuie sur R (reset)
         switch (event.key) {
         case Qt.Key_R:
-<<<<<<< HEAD
             Grille2048.newgame();
-=======
             new Grille2048.NewGame();
->>>>>>> b9d2922f16f7e28e3c5693c10c799addd44ca8f2
             break;
         }
     }
@@ -33,7 +30,9 @@ Window {
         x: 20
         y: 80
         elementText: qsTr("2")
+        //elementText: qsTr(CasesN[0][0].GetValeur())
         visible: true
+
     }
 
     Tuile {
