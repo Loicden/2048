@@ -9,28 +9,28 @@ class Case
 public:
     Case(int x=1, int y=1, int valeur=0, int DimensionGrille=4, char couleur='w',int directionmove=0);
 
-    int GetX();
-    int GetY();
-    int GetValeur();
-    char GetCouleur();
-    int GetDimension();
-    int GetDirection();
+    int getX();
+    int getY();
+    int getValeur();
+    char getCouleur();
+    int getDimension();
+    int getDirection();
 
-    void SetX(int abs);
-    void SetY(int ord);
-    void SetValeur(int val);
-    void SetCouleur(char coul);
-    void SetDimension(int Dim);
-    void SetDirection(int dir);
-    bool Getfuse();
-    void Setfuse(bool fuse);
+    void setX(int abs);
+    void setY(int ord);
+    void setValeur(int val);
+    void setCouleur(char coul);
+    void setDimension(int Dim);
+    void setDirection(int dir);
+    bool getfuse();
+    void setfuse(bool fuse);
 
-    bool IsEmpty();
-
-
+    bool isEmpty();
 
 
-    void AffichePoint();
+
+
+    void affichePoint();
 
 private:
 

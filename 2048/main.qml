@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-// Coucou Julien
+
 Window {
     id: window
     visible: true
@@ -13,7 +13,7 @@ Window {
     Keys.onPressed: {           // Nouvelle partie quand on appuie sur R (reset)
         switch (event.key) {
         case Qt.Key_R:
-            new vueObjetCpt.NewGame();
+            vueObjetCpt.newGame();
             break;
         }
     }
@@ -174,7 +174,7 @@ Window {
             y: 0
             width: 150
             height: 50
-            onClicked: new vueObjetCpt.NewGame()
+            onClicked: vueObjetCpt.newGame()
         }
     }
 
@@ -190,23 +190,23 @@ Window {
             y: 0
             width: 90
             height: 50
-            onClicked: new vueObjetCpt.Back()
+            onClicked: vueObjetCpt.back()
         }
     }
 
     Keys.onPressed: {
         switch (event.key) {
         case Qt.Key_Left:
-            new vueObjetCpt.Coup(1);
+            vueObjetCpt.coup(1);
             break;
         case Qt.Key_Right:
-            new vueObjetCpt.Coup(2);
+            vueObjetCpt.coup(2);
             break;
         case Qt.Key_Up:
-            new vueObjetCpt.Coup(3);
+            vueObjetCpt.coup(3);
             break;
         case Qt.Key_Down:
-            new vueObjetCpt.Coup(4);
+            vueObjetCpt.coup(4);
             break;
         }
     }

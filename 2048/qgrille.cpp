@@ -14,28 +14,28 @@ QGrille::QGrille(Grille Gril, QObject *parent) : QObject(parent)
 {
     getlist();
 
-    length=Gril.GetDim()*Gril.GetDim();
+    length=Gril.getDim()*Gril.getDim();
     GrilleG=Gril;
 
 }
 
-void QGrille::Coup(int coup){
-    GrilleG.Coup(coup);
+void QGrille::coup(int coup){
+    GrilleG.coup(coup);
     getlist();
 }
 
-void QGrille::NewGame(){
+void QGrille::newGame(){
     GrilleG.newGame();
-    GrilleG.AfficherGrille();
+    GrilleG.afficherGrille();
 }
 
 void QGrille::getlist(){
     int i;
     int j;
-    int D=GrilleG.GetDim();
+    int D=GrilleG.getDim();
     for(i=0;i<D;i++){
         for(j=0;j<D;j++){
-            int val=GrilleG.Getval(i,j);
+            int val=GrilleG.getval(i,j);
             cases[D*i+j]=val;
         }
     }

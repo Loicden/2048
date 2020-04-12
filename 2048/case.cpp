@@ -1,56 +1,57 @@
 #include "case.h"
 #include <iostream>
+#include <QObject>
 using namespace std;
 
 
 // FONCTIONS DE CREATION DE LA CASE
 
-int Case::GetX(){
+int Case::getX(){
     return *x;
 }
 
-void Case::Setfuse(bool fuse){
+void Case::setfuse(bool fuse){
 
     Canfuse=fuse;
 }
 
 
-bool Case::Getfuse(){
+bool Case::getfuse(){
     return Canfuse;
 }
 
-void Case::SetX(int abs){
+void Case::setX(int abs){
     *x=abs;
 }
-int Case::GetY(){
+int Case::getY(){
     return *y;
 }
-void Case::SetY(int ord){
+void Case::setY(int ord){
     *y=ord;
 }
 
-int Case::GetValeur(){
+int Case::getValeur(){
     return *valeur;
 }
-char Case::GetCouleur(){
+char Case::getCouleur(){
     return *couleur;
 }
-int Case::GetDimension(){
+int Case::getDimension(){
     return DimensionGrille;
 }
-int Case::GetDirection(){
+int Case::getDirection(){
     return directionmove;
 }
-void Case::SetValeur(int val){
+void Case::setValeur(int val){
     *valeur=val;
 }
-void Case::SetCouleur(char coul){
+void Case::setCouleur(char coul){
     *couleur=coul;
 }
-void Case::SetDimension(int Dim){
+void Case::setDimension(int Dim){
     DimensionGrille=Dim;
 }
-void Case::SetDirection(int dir){
+void Case::setDirection(int dir){
     directionmove=dir;
 }
 
@@ -61,33 +62,33 @@ Case::Case(int abs, int ord, int val,int Dim, char coul,int direction)
     y = new int;
     valeur = new int;
     couleur = new char;
-    SetX(abs);
-    SetY(ord);
-    SetValeur(val);
-    SetDimension(Dim);
-    SetCouleur(coul);
-    SetDirection(direction);
-    Setfuse(true);
+    setX(abs);
+    setY(ord);
+    setValeur(val);
+    setDimension(Dim);
+    setCouleur(coul);
+    setDirection(direction);
+    setfuse(true);
 
 
 
     }
 
 
-bool Case::IsEmpty(){
-    if(GetValeur()==0){
+bool Case::isEmpty(){
+    if(getValeur()==0){
         return true;
     }
     return false;
 }
 
 //fonction test pour vérifier que tout ça marche bien
-void Case::AffichePoint(){
-    cout<<"abscisse :"<<GetX()<<endl;
-    cout<<"ordonnee :"<<GetY()<<endl;
-    cout<<"couleur :"<<GetCouleur()<<endl;
-    cout<<"valeur :"<<GetValeur()<<endl;
-    cout<<"Vide :"<<IsEmpty()<<endl;
+void Case::affichePoint(){
+    cout<<"abscisse :"<<getX()<<endl;
+    cout<<"ordonnee :"<<getY()<<endl;
+    cout<<"couleur :"<<getCouleur()<<endl;
+    cout<<"valeur :"<<getValeur()<<endl;
+    cout<<"Vide :"<<isEmpty()<<endl;
     cout<<""<<endl;
 }
 
