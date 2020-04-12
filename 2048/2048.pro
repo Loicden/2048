@@ -17,7 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         case.cpp \
         grille.cpp \
-        main.cpp
+        main.cpp \
+        qgrille.cpp
 
 RESOURCES += qml.qrc
 
@@ -34,7 +35,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     case.h \
-    grille.h
+    grille.h \
+    qgrille.h
 
 DISTFILES += \
     ../new_game.qml

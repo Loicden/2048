@@ -4,14 +4,14 @@
 #include <QObject>
 
 
-class Grille
-{
+class Grille{
 public:
-    Grille(int Dimension=4,int Score=0, int Tempscore=0);
+    Grille(int Dimension=4, int Score=0, int TempScore=0);
     void AfficherGrille();
     void Initialisation();
     void RandCase(bool Newturn = true);
     void Changeval(int i, int j, int val);
+    int Getval(int i, int j);
     int GetScore();
     int GetTempScore();
     int GetDim();
@@ -26,7 +26,7 @@ public:
     void Test();
     bool Canfuse(int i, int j);
     void Resetfuse();
-    void NewGame();
+    void newGame();
     void Back();
     void ShiftMemoryLeft();
     void ShiftMemoryRight();

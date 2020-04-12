@@ -1,6 +1,8 @@
 #include "grille.h"
 #include <iostream>
 #include "case.h"
+#include "grille.h"
+#include <QObject>
 
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
@@ -13,7 +15,6 @@ using namespace std;
 Grille::Grille(int Dim, int Sco, int TempSco)
 {
     Dimension= new int;
-    new int;
     Tempscore=new int;
     if(Dim>4){
         *Dimension=Dim;
@@ -27,15 +28,7 @@ Grille::Grille(int Dim, int Sco, int TempSco)
     Win=0;
     Case CasesN[Dim][Dim];
     Case CasesAvant[Dim][Dim][5];
-
-
-
-
     Initialisation();
-
-
-
-
 }
 
 bool Grille::Canfuse(int i, int j){
@@ -346,17 +339,22 @@ void Grille::Coup(int Dir){
 
     }
     if(Win){
-        cout<<"vous avez gagné!"<<endl;
+        cout<<"bravo!";
+        newGame();
     }
 }
 
-void Grille::NewGame(){
+int Grille::Getval(int i, int j){
+    return(CasesN[i][j].GetValeur());
+}
+
+
+void Grille::newGame(){
     Reset();
     Resetfuse();
     Setscore(0);
     RandCase(false);
     RandCase(false);
-    cout<<"New Game"<<endl;
 }
 
 void Grille::ShiftMemoryLeft(){

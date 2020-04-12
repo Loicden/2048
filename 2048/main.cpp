@@ -1,27 +1,26 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <iostream>
+#include <QtQml>
 #include <sstream>
 #include "case.h"
 #include "grille.h"
-#include <QtQml>
-
+#include "qgrille.h"
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-<<<<<<< HEAD
 
-    Grille Grille2048 = Grille();
-    Grille2048.NewGame();
-
-=======
-    Grille Grille2048 = Grille();
->>>>>>> b9d2922f16f7e28e3c5693c10c799addd44ca8f2
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
-
     QQmlApplicationEngine engine;
+    Grille Grille2048=Grille();
+    Grille2048.newGame();
+    QGrille GrilleQML(Grille2048);
+//    GrilleQML.GrilleG.AfficherGrille();
+//    GrilleQML.Coup(2);
+//    GrilleQML.GrilleG.AfficherGrille();
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
@@ -31,5 +30,5 @@ int main(int argc, char *argv[])
     engine.load(url);
 
     return app.exec();
-
+      return 0;
 }
