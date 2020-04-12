@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <iostream>
+#include <sstream>
 #include "case.h"
 #include "grille.h"
 using namespace std;
@@ -55,13 +56,14 @@ int main(int argc, char *argv[])
 //      Grille2048.Coup(4);     //Droite
 //      Grille2048.AfficherGrille();
 //      cout<<"Pop"<<endl;
-      Grille2048.Changeval(0,3,2);
-      Grille2048.Changeval(0,2,2);
-      Grille2048.Changeval(0,0,4);
+      Grille2048.NewGame();
       Grille2048.AfficherGrille();
-
+      cout<<"score:"<<Grille2048.GetScore();
       Grille2048.Coup(2);
       Grille2048.AfficherGrille();
+      cout<<"score"<<Grille2048.GetScore();
+
+
 
 //      cout<<"Coup a gauche"<<endl;
 //      Grille2048.Coup(4);     //Droite

@@ -13,7 +13,7 @@ using namespace std;
 Grille::Grille(int Dim, int Sco, int TempSco)
 {
     Dimension= new int;
-    Score=new int;
+    new int;
     Tempscore=new int;
     if(Dim>4){
         *Dimension=Dim;
@@ -24,6 +24,7 @@ Grille::Grille(int Dim, int Sco, int TempSco)
 
     Setscore(Sco);
     *Tempscore=TempSco;
+    Win=0;
 
     Case CasesN[Dim][Dim];
     Case CasesAvant[Dim][Dim][5];
@@ -78,20 +79,18 @@ void Grille::RandCase(bool Newt){
       int proba;
       /* generate secret number between 1 and 10: */
       proba = rand() % 10 + 1;
-      cout<<"La proba est : "<<proba<<endl;
       /* On choisit une proba de 3/10 arbitrairement */
       if (proba < 3){
           value = 4;
       }
   }
-  cout<<"La valeur de la nouvelle case est "<<value<<endl;
 
   int randx, randy;
   do{
       randx = rand() % *Dimension ;
       randy = rand() % *Dimension ;
-      cout<<"x est "<<randx<<endl;
-      cout<<"y est "<<randy<<endl;
+//      cout<<"x est "<<randx<<endl;
+//      cout<<"y est "<<randy<<endl;
 
   }
   while (CasesN[randx][randy].IsEmpty() == false);
@@ -129,7 +128,7 @@ void Grille::Changeval(int i, int j, int val){
 
 
 int Grille::GetScore(){
-    return *Score;
+    return Score;
 }
 
 int Grille::GetTempScore(){
@@ -141,7 +140,7 @@ int Grille::GetDim(){
 }
 
 void Grille::Setscore(int score){
-    *Score=score;
+    Score=score;
 }
 
 
@@ -189,6 +188,7 @@ bool Grille::TestFuse(int i, int j, int newi, int newj){
     return false;
 
 }
+
 void Grille::Move(int i, int j, int newi, int newj){
 
         int newval=CasesN[i][j].GetValeur();
@@ -219,6 +219,11 @@ void Grille::Fuse(int i, int j, int newi, int newj){
     CasesN[newi][newj].SetValeur(newval);
     CasesN[i][j].SetValeur(0);
     CasesN[newi][newj].Setfuse(false);
+    if(newval==2048){
+        Win=1;
+    }
+    Setscore(GetScore()+newval);
+
 
 
 }
@@ -335,6 +340,17 @@ void Grille::Coup(int Dir){
         }
     }
     cout<<endl;
-    //RandCase();
+    RandCase();
     Resetfuse();
+    if(Win){
+        cout<<"vous avez gagné!"<<endl;
+    }
+}
+
+void Grille::newgame(){
+    Reset();
+    Resetfuse();
+    Setscore(0);
+    RandCase(false);
+    RandCase(false);
 }

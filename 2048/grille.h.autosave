@@ -39,6 +39,7 @@ private:
     int Direction;
     int Tab;
     int Tab_inv;
+    int Win;
     Case CasesN[4][4];
     Case CasesAvant[4][4][5]; //mémoire des coups précédents
 
