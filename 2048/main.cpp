@@ -10,10 +10,14 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+<<<<<<< HEAD
 
     Grille Grille2048 = Grille();
     Grille2048.NewGame();
 
+=======
+    Grille Grille2048 = Grille();
+>>>>>>> b9d2922f16f7e28e3c5693c10c799addd44ca8f2
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 

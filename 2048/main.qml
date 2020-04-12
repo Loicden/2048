@@ -13,7 +13,11 @@ Window {
     Keys.onPressed: {
         switch (event.key) {
         case Qt.Key_R:
+<<<<<<< HEAD
             Grille2048.newgame();
+=======
+            new Grille2048.NewGame();
+>>>>>>> b9d2922f16f7e28e3c5693c10c799addd44ca8f2
             break;
         }
     }
