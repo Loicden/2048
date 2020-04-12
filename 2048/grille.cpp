@@ -356,6 +356,7 @@ void Grille::NewGame(){
     Setscore(0);
     RandCase(false);
     RandCase(false);
+    cout<<"New Game"<<endl;
 }
 
 void Grille::ShiftMemoryLeft(){

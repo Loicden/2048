@@ -13,7 +13,7 @@ Window {
     Keys.onPressed: {
         switch (event.key) {
         case Qt.Key_R:
-            Grille2048.NewGame();
+            Grille2048.newgame();
             break;
         }
     }
@@ -168,11 +168,24 @@ Window {
             y: 0
             width: 150
             height: 50
-            onClicked: Grille2048.NewGame()
+            onClicked: new Grille2048.NewGame()
         }
     }
 
-
-
-
+    Keys.onPressed: {
+        switch (event.key) {
+        case Qt.Key_Left:
+            new Grille2046.Coup(1);
+            break;
+        case Qt.Key_Right:
+            new Grille2046.Coup(2);
+            break;
+        case Qt.Key_Up:
+            new Grille2046.Coup(3);
+            break;
+        case Qt.Key_Down:
+            new Grille2046.Coup(4);
+            break;
+        }
+    }
 }

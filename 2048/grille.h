@@ -1,6 +1,7 @@
 #ifndef GRILLE_H
 #define GRILLE_H
 #include "case.h"
+#include <QObject>
 
 
 class Grille
