@@ -41,6 +41,7 @@ void QGrille::coup(int coup){
     case14changed();
     case15changed();
     Scorechanged();
+    GrilleG.afficherGrille();
 }
 
 void QGrille::newGame(){
@@ -63,7 +64,7 @@ void QGrille::newGame(){
     case14changed();
     case15changed();
     Scorechanged();
-
+    afficher();
 }
 
 void QGrille::getlist(){
@@ -84,7 +85,7 @@ void QGrille::afficher(){
     for(k=0;k<length;k++){
         cout<<cases[k];
     }
-
+    cout<<endl;
 }
 
 QString QGrille::color(QString string){
