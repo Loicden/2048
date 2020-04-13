@@ -52,11 +52,8 @@ private:
     int Win;
     int Lose;
     Case CasesN[4][4];
-<<<<<<< HEAD
 
-=======
-    Case CasesAvant[4][4][5]; //mémoire des coups précédents
->>>>>>> parent of 9a905b3... merge
+
 
 
 

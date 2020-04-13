@@ -399,38 +399,3 @@ void Grille::newGame(){
     Win=0;
 }
 
-void Grille::shiftMemoryLeft(){
-    int i;
-    int j;
-    for (i=0;i<*Dimension-1;i++){
-        for(j=0;j<*Dimension-1;j++){
-            CasesN[i][j]=CasesAvant[i][j][0];
-        }
-    }
-    int k;
-    for(k=5;k>0;k--){
-        for(i=0;i<*Dimension+1;i++){
-            for(j=0;j<*Dimension+1;j++){
-                CasesAvant[i][j][k]=CasesAvant[i][j][k-1];
-            }
-        }
-    }
-}
-
-void Grille::shiftMemoryRight(){
-    int i;
-    int j;
-    for (i=0;i<*Dimension-1;i++){
-        for(j=0;j<*Dimension-1;j++){
-            CasesAvant[i][j][0]=CasesN[i][j];
-        }
-    }
-    int k;
-    for(k=0;k<5;k++){
-        for(i=0;i<*Dimension+1;i++){
-            for(j=0;j<*Dimension+1;j++){
-                CasesAvant[i][j][k]=CasesAvant[i][j][k+1];
-            }
-        }
-    }
-}
