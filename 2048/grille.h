@@ -52,8 +52,12 @@ private:
     int Win;
     int Lose;
     Case CasesN[4][4];
+<<<<<<< HEAD
 
 
+=======
+    Case CasesAvant[4][4][5]; //mémoire des coups précédents
+>>>>>>> parent of 1202307... fonction back
 
 
 

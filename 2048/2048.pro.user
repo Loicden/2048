@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.11.1, 2020-04-14T00:37:49. -->
 =======
 <!-- Written by QtCreator 4.11.0, 2020-04-13T19:10:44. -->
 >>>>>>> parent of 9a905b3... merge
+=======
+<!-- Written by QtCreator 4.11.0, 2020-04-13T19:10:44. -->
+>>>>>>> parent of 1202307... fonction back
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -546,7 +550,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/jngt/OneDrive/Bureau/Centrale/2A/Electifs/C++/projet/2048/build-2048-Desktop_Qt_5_14_1_MinGW_64_bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default"></value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
