@@ -174,20 +174,21 @@ void Grille::setscore(int score){
 bool Grille::testMove(int i, int j, int newi, int newj){
     Case TriedTile;
     TriedTile=CasesN[i][j];
-    if (TriedTile.getValeur()==0){
+    if (newi < 0 or newj < 0 or newi > getDim()-1 or newj > getDim()-1){
         return false;
     }
-    if(i!=newi && j!=newj){
+    else if(i!=newi && j!=newj){
         return false;
+    }
+    else if (TriedTile.getValeur()==0){
+        return false;
+    }
 
-    }
+
     else if (CasesN[newi][newj].getValeur()==0){
         return true;
     }
-    else if (newi < 0 or newj < 0 or newi > getDim()-1 or newj > getDim()-1){
-        cout<<"On est hors du canevas"<<endl;
-        return false;
-    }
+
     return false;
 
 
