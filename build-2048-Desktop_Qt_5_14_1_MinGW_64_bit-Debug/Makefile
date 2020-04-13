@@ -608,6 +608,7 @@ moc_qgrille.cpp: ../2048/qgrille.h \
 		C:/Qt/5.14.1/mingw73_64/include/QtGui/qtouchdevice.h \
 		../2048/grille.h \
 		../2048/case.h \
+		C:/Qt/5.14.1/mingw73_64/include/QtCore/QString \
 		moc_predefs.h \
 		C:/Qt/5.14.1/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.1\mingw73_64\bin\moc.exe $(DEFINES) --include C:/Users/jngt/OneDrive/Bureau/Centrale/2A/Electifs/C++/projet/2048/build-2048-Desktop_Qt_5_14_1_MinGW_64_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_64/mkspecs/win32-g++ -IC:/Users/jngt/OneDrive/Bureau/Centrale/2A/Electifs/C++/projet/2048/2048 -IC:/Qt/5.14.1/mingw73_64/include -IC:/Qt/5.14.1/mingw73_64/include/QtQuick -IC:/Qt/5.14.1/mingw73_64/include/QtWidgets -IC:/Qt/5.14.1/mingw73_64/include/QtGui -IC:/Qt/5.14.1/mingw73_64/include/QtANGLE -IC:/Qt/5.14.1/mingw73_64/include/QtQmlModels -IC:/Qt/5.14.1/mingw73_64/include/QtQml -IC:/Qt/5.14.1/mingw73_64/include/QtNetwork -IC:/Qt/5.14.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\2048\qgrille.h -o moc_qgrille.cpp
@@ -1288,6 +1289,7 @@ qgrille.o: ../2048/qgrille.cpp ../2048/qgrille.h \
 		C:/Qt/5.14.1/mingw73_64/include/QtGui/qtouchdevice.h \
 		../2048/grille.h \
 		../2048/case.h \
+		C:/Qt/5.14.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.14.1/mingw73_64/include/QtQml/QtQml \
 		C:/Qt/5.14.1/mingw73_64/include/QtQml/QtQmlDepends \
 		C:/Qt/5.14.1/mingw73_64/include/QtCore/QtCore \
@@ -1420,7 +1422,6 @@ qgrille.o: ../2048/qgrille.cpp ../2048/qgrille.h \
 		C:/Qt/5.14.1/mingw73_64/include/QtNetwork/qabstractnetworkcache.h \
 		C:/Qt/5.14.1/mingw73_64/include/QtNetwork/qnetworkrequest.h \
 		C:/Qt/5.14.1/mingw73_64/include/QtCore/QSharedDataPointer \
-		C:/Qt/5.14.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.14.1/mingw73_64/include/QtCore/QUrl \
 		C:/Qt/5.14.1/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.14.1/mingw73_64/include/QtNetwork/qabstractsocket.h \

@@ -28,10 +28,14 @@ public:
     void resetfuse();
     void newGame();
     void back();
-    void shiftMemoryLeft();
-    void shiftMemoryRight();
     bool TestLose();
     bool TestFull();
+    bool CanUp();
+    bool CanDown();
+    bool CanLeft();
+    bool CanRight();
+
+    Case CasesAvant[4][4]; //mémoire des coups précédents
 
 
 
@@ -48,7 +52,7 @@ private:
     int Win;
     int Lose;
     Case CasesN[4][4];
-    Case CasesAvant[4][4]; //mémoire des coups précédents
+
 
 
 

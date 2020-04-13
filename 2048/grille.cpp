@@ -77,7 +77,6 @@ void Grille::randCase(bool Newt){
           value = 4;
       }
   }
-  int i=0;
   int randx, randy;
   do{
       randx = rand() % *Dimension ;
@@ -213,8 +212,9 @@ bool Grille::testFuse(int i, int j, int newi, int newj){
     Case NextTile;
     TriedTile=CasesN[i][j];
     NextTile=CasesN[newi][newj];
-    if(newi<0 or newi>getDim()-1 or newj<0 or newj>getDim()-1)
+    if(newi<0 or newi>getDim()-1 or newj<0 or newj>getDim()-1){
         return false;
+    }
     if(NextTile.getfuse()==false){
         return false;
     }
