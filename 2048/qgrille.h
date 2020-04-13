@@ -46,6 +46,7 @@ public:
     int cases[16];
     QString colors[12]={"#cdc1b4","#eee4da","#f2b179","#f2b179","#f59563","#f67c60","#f65e3b","#edcf73","#edcc62","#edc850","#edc53f","#edc22d"};
     QString colorstext[12]={"#474543","#474543","#474543","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4"};
+
     QString case0() {
         if(cases[0]==0){
             return "";

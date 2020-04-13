@@ -24,6 +24,7 @@ QGrille::QGrille(Grille Gril, QObject *parent) : QObject(parent)
 void QGrille::coup(int coup){
     GrilleG.coup(coup);
     getlist();
+    GrilleG.afficherGrille();
 }
 
 void QGrille::newGame(){

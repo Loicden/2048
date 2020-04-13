@@ -18,14 +18,14 @@ Item {
         Text {
             id: element
             x: 23
-            y: 21
+            y: 23
             width: 44
             color: vueObjetCpt.colortext(elementText)
             text: qsTr("0")
             font.family: "Gotham Ultra"
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 30
+            font.pixelSize: 35
         }
     }
 

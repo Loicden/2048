@@ -1,23 +1,22 @@
-import QtQuick 2.12
-import QtQuick.Window 2.12
+import QtQuick 2.2
+import QtQuick.Window 2.2
 
 Window {
     id: window
+
     visible: true
     color: "#ffffff"
     width: 400
     height: 535
+
     title: qsTr("Jeu du 2048")
     property alias elementText: element.text
     property alias tuile1ElementText: tuile1.elementText
 
-    Keys.onPressed: {           // Nouvelle partie quand on appuie sur R (reset)
-        switch (event.key) {
-        case Qt.Key_R:
-            vueObjetCpt.newGame();
-            break;
-        }
-    }
+
+
+
+
 
     Grille {
         id: grille
@@ -172,6 +171,24 @@ Window {
         y: 463
         focus: true
 
+            Keys.onPressed: {
+                switch (event.key) {
+                case Qt.Key_Left:
+                    vueObjetCpt.coup(1);
+                    break;
+                case Qt.Key_Right:
+                    vueObjetCpt.coup(2);
+                    break;
+                case Qt.Key_Up:
+                    vueObjetCpt.coup(3);
+                    break;
+                case Qt.Key_Down:
+                    vueObjetCpt.coup(4);
+                    break;
+
+                }
+            }
+
         MouseArea {
             id: mouseAreaNewGame
             x: 0
@@ -199,21 +216,7 @@ Window {
         }
     }
 
-//    Keys.onPressed: {
-//        switch (event.key) {
-//        case Qt.Key_Left:
-//            vueObjetCpt.coup(1);
-//            break;
-//        case Qt.Key_Right:
-//            vueObjetCpt.coup(2);
-//            break;
-//        case Qt.Key_Up:
-//            vueObjetCpt.coup(3);
-//            break;
-//        case Qt.Key_Down:
-//            vueObjetCpt.coup(4);
-//            break;
-//        }
-//    }
+
+
 }
 
