@@ -34,6 +34,8 @@ public:
     bool CanDown();
     bool CanLeft();
     bool CanRight();
+    void shiftMemoryLeft();
+    void shiftMemoryRight();
 
     Case CasesAvant[4][4]; //mémoire des coups précédents
 
@@ -52,12 +54,8 @@ private:
     int Win;
     int Lose;
     Case CasesN[4][4];
-<<<<<<< HEAD
 
 
-=======
-    Case CasesAvant[4][4][5]; //mémoire des coups précédents
->>>>>>> parent of 1202307... fonction back
 
 
 

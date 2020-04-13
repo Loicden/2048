@@ -397,25 +397,24 @@ void Grille::newGame(){
     randCase(false);
     randCase(false);
     Win=0;
-<<<<<<< HEAD
+
 }
 
-=======
-}
+
 
 void Grille::shiftMemoryLeft(){
     int i;
     int j;
     for (i=0;i<*Dimension-1;i++){
         for(j=0;j<*Dimension-1;j++){
-            CasesN[i][j]=CasesAvant[i][j][0];
+            CasesN[i][j]=CasesAvant[i][j];
         }
     }
     int k;
     for(k=5;k>0;k--){
         for(i=0;i<*Dimension+1;i++){
             for(j=0;j<*Dimension+1;j++){
-                CasesAvant[i][j][k]=CasesAvant[i][j][k-1];
+                CasesAvant[i][j]=CasesAvant[i][j];
             }
         }
     }
@@ -426,16 +425,16 @@ void Grille::shiftMemoryRight(){
     int j;
     for (i=0;i<*Dimension-1;i++){
         for(j=0;j<*Dimension-1;j++){
-            CasesAvant[i][j][0]=CasesN[i][j];
+            CasesAvant[i][j]=CasesN[i][j];
         }
     }
     int k;
     for(k=0;k<5;k++){
         for(i=0;i<*Dimension+1;i++){
             for(j=0;j<*Dimension+1;j++){
-                CasesAvant[i][j][k]=CasesAvant[i][j][k+1];
+                CasesAvant[i][j]=CasesAvant[i][j];
             }
         }
     }
 }
->>>>>>> parent of 1202307... fonction back
+
