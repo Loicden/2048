@@ -145,6 +145,7 @@ Window {
         x: 290
         y: 350
         elementText: vueObjetCpt.case15
+
     }
 
     Text {

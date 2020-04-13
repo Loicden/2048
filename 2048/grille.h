@@ -30,6 +30,8 @@ public:
     void back();
     void shiftMemoryLeft();
     void shiftMemoryRight();
+    bool TestLose();
+    bool TestFull();
 
 
 
@@ -44,6 +46,7 @@ private:
     int Tab;
     int Tab_inv;
     int Win;
+    int Lose;
     Case CasesN[4][4];
     Case CasesAvant[4][4][5]; //mémoire des coups précédents
 

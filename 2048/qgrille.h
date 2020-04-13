@@ -13,23 +13,23 @@ using namespace std;
 class QGrille : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString case0 READ case0)
-    Q_PROPERTY(QString case1 READ case1)
-    Q_PROPERTY(QString case2 READ case2)
-    Q_PROPERTY(QString case3 READ case3)
-    Q_PROPERTY(QString case4 READ case4)
-    Q_PROPERTY(QString case5 READ case5)
-    Q_PROPERTY(QString case6 READ case6)
-    Q_PROPERTY(QString case7 READ case7)
-    Q_PROPERTY(QString case8 READ case8)
-    Q_PROPERTY(QString case9 READ case9)
-    Q_PROPERTY(QString case10 READ case10)
-    Q_PROPERTY(QString case11 READ case11)
-    Q_PROPERTY(QString case12 READ case12)
-    Q_PROPERTY(QString case13 READ case13)
-    Q_PROPERTY(QString case14 READ case14)
-    Q_PROPERTY(QString case15 READ case15)
-    Q_PROPERTY(QString QScore READ Getscore)
+    Q_PROPERTY(QString case0 READ case0 NOTIFY case0changed)
+    Q_PROPERTY(QString case1 READ case1 NOTIFY case1changed)
+    Q_PROPERTY(QString case2 READ case2 NOTIFY case2changed)
+    Q_PROPERTY(QString case3 READ case3 NOTIFY case3changed)
+    Q_PROPERTY(QString case4 READ case4 NOTIFY case4changed)
+    Q_PROPERTY(QString case5 READ case5 NOTIFY case5changed)
+    Q_PROPERTY(QString case6 READ case6 NOTIFY case6changed)
+    Q_PROPERTY(QString case7 READ case7 NOTIFY case7changed)
+    Q_PROPERTY(QString case8 READ case8 NOTIFY case8changed)
+    Q_PROPERTY(QString case9 READ case9 NOTIFY case9changed)
+    Q_PROPERTY(QString case10 READ case10 NOTIFY case10changed)
+    Q_PROPERTY(QString case11 READ case11 NOTIFY case11changed)
+    Q_PROPERTY(QString case12 READ case12 NOTIFY case12changed)
+    Q_PROPERTY(QString case13 READ case13 NOTIFY case13changed)
+    Q_PROPERTY(QString case14 READ case14 NOTIFY case14changed)
+    Q_PROPERTY(QString case15 READ case15 NOTIFY case15changed)
+    Q_PROPERTY(QString QScore READ Getscore NOTIFY Scorechanged)
 
 
 
@@ -244,6 +244,28 @@ public:
         }
         return colors[int(log2(cases[15]))];
     }
+
+
+signals:
+    void case0changed();
+    void case1changed();
+    void case2changed();
+    void case3changed();
+    void case4changed();
+    void case5changed();
+    void case6changed();
+    void case7changed();
+    void case8changed();
+    void case9changed();
+    void case10changed();
+    void case11changed();
+    void case12changed();
+    void case13changed();
+    void case14changed();
+    void case15changed();
+    void Scorechanged();
+
+
 
 private:
     QString score;

@@ -77,7 +77,7 @@ void Grille::randCase(bool Newt){
           value = 4;
       }
   }
-
+  int i=0;
   int randx, randy;
   do{
       randx = rand() % *Dimension ;
@@ -85,7 +85,9 @@ void Grille::randCase(bool Newt){
 //      cout<<"x est "<<randx<<endl;
 //      cout<<"y est "<<randy<<endl;
 
+
   }
+
   while (CasesN[randx][randy].isEmpty() == false);
   changeval(randx,randy,value);
 }
@@ -132,6 +134,35 @@ int Grille::getDim(){
     return *Dimension;
 }
 
+bool Grille::TestFull(){
+    int i;
+    int j;
+    for (i=0;i<getDim()-1;i++){
+        for (j=0;j<getDim()-1;j++){
+
+           if(isemptyG(i,j)){
+               return false;
+           }
+        }
+    }
+    return true;
+}
+
+bool Grille::TestLose(){
+        int i;
+        int j;
+        for (i=0;i<getDim()-1;i++){
+            for (j=0;j<getDim()-1;j++){
+                if(testFuse(i,j,i+1,j) or testFuse(i,j,i-1,j) or testFuse(i,j,i,j+1) or testFuse(i,j,i,j-1)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+
 void Grille::setscore(int score){
     Score=score;
 }
@@ -153,7 +184,7 @@ bool Grille::testMove(int i, int j, int newi, int newj){
     else if (CasesN[newi][newj].getValeur()==0){
         return true;
     }
-    else if (newi < 0 or newj < 0 or newi > *Dimension-1 or newj > *Dimension-1){
+    else if (newi < 0 or newj < 0 or newi > getDim()-1 or newj > getDim()-1){
         cout<<"On est hors du canevas"<<endl;
         return false;
     }
@@ -167,6 +198,8 @@ bool Grille::testFuse(int i, int j, int newi, int newj){
     Case NextTile;
     TriedTile=CasesN[i][j];
     NextTile=CasesN[newi][newj];
+    if(newi<0 or newi>getDim()-1 or newj<0 or newj>getDim()-1)
+        return false;
     if(NextTile.getfuse()==false){
         return false;
     }
@@ -333,15 +366,22 @@ void Grille::coup(int Dir){
         }
     }
     cout<<endl;
-    randCase();
-    resetfuse();
-    for(i=0;i<*Dimension;i++){
-
+    if (TestLose() and TestFull()){
+        cout<<"perdu!";
+        newGame();
     }
     if(Win){
         cout<<"bravo!";
         newGame();
     }
+    randCase();
+    resetfuse();
+    for(i=0;i<*Dimension;i++){
+
+    }
+
+
+
 }
 
 int Grille::getval(int i, int j){
@@ -355,6 +395,7 @@ void Grille::newGame(){
     setscore(0);
     randCase(false);
     randCase(false);
+    Win=0;
 }
 
 void Grille::shiftMemoryLeft(){
