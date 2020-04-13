@@ -27,7 +27,7 @@ Grille::Grille(int Dim, int Sco, int TempSco)
     *Tempscore=TempSco;
     Win=0;
     Case CasesN[Dim][Dim];
-    Case CasesAvant[Dim][Dim][5];
+    Case CasesAvant[Dim][Dim];
     initialisation();
 }
 
@@ -93,7 +93,15 @@ void Grille::randCase(bool Newt){
 }
 
 
-
+void Grille::back(){
+    int i;
+    int j;
+    for(i=0;i<getDim()-1;i++){
+        for(j=0;j<getDim()-1;j++){
+            CasesN[i][j]=CasesAvant[i][j];
+        }
+    }
+}
 
 void Grille::afficherGrille(){
     int i;
@@ -153,12 +161,18 @@ bool Grille::TestLose(){
         int j;
         for (i=0;i<getDim()-1;i++){
             for (j=0;j<getDim()-1;j++){
+                if (getval(i,j)==0){
+                    return false;
+                }
                 if(testFuse(i,j,i+1,j) or testFuse(i,j,i-1,j) or testFuse(i,j,i,j+1) or testFuse(i,j,i,j-1)){
-                    return true;
+                    return false;
+                }
+                if(testMove(i,j,i+1,j) or testMove(i,j,i-1,j) or testMove(i,j,i,j+1) or testMove(i,j,i,j-1)){
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
 
@@ -366,8 +380,7 @@ void Grille::coup(int Dir){
             }
         }
     }
-    cout<<endl;
-    if (TestLose() and TestFull()){
+    if (TestLose()){
         cout<<"perdu!";
         newGame();
     }
@@ -377,11 +390,6 @@ void Grille::coup(int Dir){
     }
     randCase();
     resetfuse();
-    for(i=0;i<*Dimension;i++){
-
-    }
-
-
 
 }
 
@@ -391,46 +399,22 @@ int Grille::getval(int i, int j){
 
 
 void Grille::newGame(){
+
     reset();
     resetfuse();
     setscore(0);
     randCase(false);
     randCase(false);
+    int i;
+    int j;
+    for(i=0;i<getDim()-1;i++){
+        for(j=0;j<getDim()-1;j++){
+            CasesAvant[i][j]=CasesN[i][j];
+        }
+    }
     Win=0;
 }
 
-void Grille::shiftMemoryLeft(){
-    int i;
-    int j;
-    for (i=0;i<*Dimension-1;i++){
-        for(j=0;j<*Dimension-1;j++){
-            CasesN[i][j]=CasesAvant[i][j][0];
-        }
-    }
-    int k;
-    for(k=5;k>0;k--){
-        for(i=0;i<*Dimension+1;i++){
-            for(j=0;j<*Dimension+1;j++){
-                CasesAvant[i][j][k]=CasesAvant[i][j][k-1];
-            }
-        }
-    }
-}
 
-void Grille::shiftMemoryRight(){
-    int i;
-    int j;
-    for (i=0;i<*Dimension-1;i++){
-        for(j=0;j<*Dimension-1;j++){
-            CasesAvant[i][j][0]=CasesN[i][j];
-        }
-    }
-    int k;
-    for(k=0;k<5;k++){
-        for(i=0;i<*Dimension+1;i++){
-            for(j=0;j<*Dimension+1;j++){
-                CasesAvant[i][j][k]=CasesAvant[i][j][k+1];
-            }
-        }
-    }
-}
+
+
