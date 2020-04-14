@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_QGrille_t {
-    QByteArrayData data[42];
-    char stringdata0[389];
+    QByteArrayData data[43];
+    char stringdata0[394];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -54,26 +54,27 @@ QT_MOC_LITERAL(18, 223, 12), // "Scorechanged"
 QT_MOC_LITERAL(19, 236, 4), // "coup"
 QT_MOC_LITERAL(20, 241, 7), // "newGame"
 QT_MOC_LITERAL(21, 249, 7), // "getlist"
-QT_MOC_LITERAL(22, 257, 5), // "color"
-QT_MOC_LITERAL(23, 263, 6), // "string"
-QT_MOC_LITERAL(24, 270, 9), // "colortext"
-QT_MOC_LITERAL(25, 280, 5), // "case0"
-QT_MOC_LITERAL(26, 286, 5), // "case1"
-QT_MOC_LITERAL(27, 292, 5), // "case2"
-QT_MOC_LITERAL(28, 298, 5), // "case3"
-QT_MOC_LITERAL(29, 304, 5), // "case4"
-QT_MOC_LITERAL(30, 310, 5), // "case5"
-QT_MOC_LITERAL(31, 316, 5), // "case6"
-QT_MOC_LITERAL(32, 322, 5), // "case7"
-QT_MOC_LITERAL(33, 328, 5), // "case8"
-QT_MOC_LITERAL(34, 334, 5), // "case9"
-QT_MOC_LITERAL(35, 340, 6), // "case10"
-QT_MOC_LITERAL(36, 347, 6), // "case11"
-QT_MOC_LITERAL(37, 354, 6), // "case12"
-QT_MOC_LITERAL(38, 361, 6), // "case13"
-QT_MOC_LITERAL(39, 368, 6), // "case14"
-QT_MOC_LITERAL(40, 375, 6), // "case15"
-QT_MOC_LITERAL(41, 382, 6) // "QScore"
+QT_MOC_LITERAL(22, 257, 4), // "back"
+QT_MOC_LITERAL(23, 262, 5), // "color"
+QT_MOC_LITERAL(24, 268, 6), // "string"
+QT_MOC_LITERAL(25, 275, 9), // "colortext"
+QT_MOC_LITERAL(26, 285, 5), // "case0"
+QT_MOC_LITERAL(27, 291, 5), // "case1"
+QT_MOC_LITERAL(28, 297, 5), // "case2"
+QT_MOC_LITERAL(29, 303, 5), // "case3"
+QT_MOC_LITERAL(30, 309, 5), // "case4"
+QT_MOC_LITERAL(31, 315, 5), // "case5"
+QT_MOC_LITERAL(32, 321, 5), // "case6"
+QT_MOC_LITERAL(33, 327, 5), // "case7"
+QT_MOC_LITERAL(34, 333, 5), // "case8"
+QT_MOC_LITERAL(35, 339, 5), // "case9"
+QT_MOC_LITERAL(36, 345, 6), // "case10"
+QT_MOC_LITERAL(37, 352, 6), // "case11"
+QT_MOC_LITERAL(38, 359, 6), // "case12"
+QT_MOC_LITERAL(39, 366, 6), // "case13"
+QT_MOC_LITERAL(40, 373, 6), // "case14"
+QT_MOC_LITERAL(41, 380, 6), // "case15"
+QT_MOC_LITERAL(42, 387, 6) // "QScore"
 
     },
     "QGrille\0case0changed\0\0case1changed\0"
@@ -82,7 +83,7 @@ QT_MOC_LITERAL(41, 382, 6) // "QScore"
     "case8changed\0case9changed\0case10changed\0"
     "case11changed\0case12changed\0case13changed\0"
     "case14changed\0case15changed\0Scorechanged\0"
-    "coup\0newGame\0getlist\0color\0string\0"
+    "coup\0newGame\0getlist\0back\0color\0string\0"
     "colortext\0case0\0case1\0case2\0case3\0"
     "case4\0case5\0case6\0case7\0case8\0case9\0"
     "case10\0case11\0case12\0case13\0case14\0"
@@ -96,38 +97,39 @@ static const uint qt_meta_data_QGrille[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
-      17,  152, // properties
+      23,   14, // methods
+      17,  158, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
       17,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,  124,    2, 0x06 /* Public */,
-       3,    0,  125,    2, 0x06 /* Public */,
-       4,    0,  126,    2, 0x06 /* Public */,
-       5,    0,  127,    2, 0x06 /* Public */,
-       6,    0,  128,    2, 0x06 /* Public */,
-       7,    0,  129,    2, 0x06 /* Public */,
-       8,    0,  130,    2, 0x06 /* Public */,
-       9,    0,  131,    2, 0x06 /* Public */,
-      10,    0,  132,    2, 0x06 /* Public */,
-      11,    0,  133,    2, 0x06 /* Public */,
-      12,    0,  134,    2, 0x06 /* Public */,
-      13,    0,  135,    2, 0x06 /* Public */,
-      14,    0,  136,    2, 0x06 /* Public */,
-      15,    0,  137,    2, 0x06 /* Public */,
-      16,    0,  138,    2, 0x06 /* Public */,
-      17,    0,  139,    2, 0x06 /* Public */,
-      18,    0,  140,    2, 0x06 /* Public */,
+       1,    0,  129,    2, 0x06 /* Public */,
+       3,    0,  130,    2, 0x06 /* Public */,
+       4,    0,  131,    2, 0x06 /* Public */,
+       5,    0,  132,    2, 0x06 /* Public */,
+       6,    0,  133,    2, 0x06 /* Public */,
+       7,    0,  134,    2, 0x06 /* Public */,
+       8,    0,  135,    2, 0x06 /* Public */,
+       9,    0,  136,    2, 0x06 /* Public */,
+      10,    0,  137,    2, 0x06 /* Public */,
+      11,    0,  138,    2, 0x06 /* Public */,
+      12,    0,  139,    2, 0x06 /* Public */,
+      13,    0,  140,    2, 0x06 /* Public */,
+      14,    0,  141,    2, 0x06 /* Public */,
+      15,    0,  142,    2, 0x06 /* Public */,
+      16,    0,  143,    2, 0x06 /* Public */,
+      17,    0,  144,    2, 0x06 /* Public */,
+      18,    0,  145,    2, 0x06 /* Public */,
 
  // methods: name, argc, parameters, tag, flags
-      19,    1,  141,    2, 0x02 /* Public */,
-      20,    0,  144,    2, 0x02 /* Public */,
-      21,    0,  145,    2, 0x02 /* Public */,
-      22,    1,  146,    2, 0x02 /* Public */,
-      24,    1,  149,    2, 0x02 /* Public */,
+      19,    1,  146,    2, 0x02 /* Public */,
+      20,    0,  149,    2, 0x02 /* Public */,
+      21,    0,  150,    2, 0x02 /* Public */,
+      22,    0,  151,    2, 0x02 /* Public */,
+      23,    1,  152,    2, 0x02 /* Public */,
+      25,    1,  155,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -152,11 +154,11 @@ static const uint qt_meta_data_QGrille[] = {
     QMetaType::Void, QMetaType::Int,   19,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::QString, QMetaType::QString,   23,
-    QMetaType::QString, QMetaType::QString,   23,
+    QMetaType::Void,
+    QMetaType::QString, QMetaType::QString,   24,
+    QMetaType::QString, QMetaType::QString,   24,
 
  // properties: name, type, flags
-      25, QMetaType::QString, 0x00495001,
       26, QMetaType::QString, 0x00495001,
       27, QMetaType::QString, 0x00495001,
       28, QMetaType::QString, 0x00495001,
@@ -173,6 +175,7 @@ static const uint qt_meta_data_QGrille[] = {
       39, QMetaType::QString, 0x00495001,
       40, QMetaType::QString, 0x00495001,
       41, QMetaType::QString, 0x00495001,
+      42, QMetaType::QString, 0x00495001,
 
  // properties: notify_signal_id
        0,
@@ -222,9 +225,10 @@ void QGrille::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 17: _t->coup((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 18: _t->newGame(); break;
         case 19: _t->getlist(); break;
-        case 20: { QString _r = _t->color((*reinterpret_cast< QString(*)>(_a[1])));
+        case 20: _t->back(); break;
+        case 21: { QString _r = _t->color((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 21: { QString _r = _t->colortext((*reinterpret_cast< QString(*)>(_a[1])));
+        case 22: { QString _r = _t->colortext((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -410,13 +414,13 @@ int QGrille::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 23;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 22)
+        if (_id < 23)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 22;
+        _id -= 23;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty

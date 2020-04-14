@@ -38,6 +38,7 @@ public:
     Q_INVOKABLE void coup(int coup);
     Q_INVOKABLE void newGame();
     Q_INVOKABLE void getlist();
+    Q_INVOKABLE void back();
     Q_INVOKABLE QString color(QString string);
     Q_INVOKABLE QString colortext(QString string);
     void afficher();
