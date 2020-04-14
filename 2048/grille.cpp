@@ -465,7 +465,6 @@ void Grille::coup(int Dir){
             }
         }
     }
-    cout<<canUp()<<canDown()<<canLeft()<<canRight();
     if (TestLose()){
         cout<<"perdu!";
         newGame();
