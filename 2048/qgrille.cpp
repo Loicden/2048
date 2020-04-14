@@ -12,7 +12,7 @@ using namespace std;
 
 
 
-QGrille::QGrille(Grille Gril, QObject *parent) : QObject(parent)
+QGrille::QGrille(Grille Gril, QObject *parent) : QObject(parent)    // Definition de l'objet QGrille hérité de la classe QObjet
 {
     getlist();
 
@@ -21,7 +21,30 @@ QGrille::QGrille(Grille Gril, QObject *parent) : QObject(parent)
 
 }
 
-void QGrille::coup(int coup){
+void QGrille::updateDisplay(){
+    getlist();
+    case0changed();
+    case1changed();
+    case2changed();
+    case3changed();
+    case4changed();
+    case5changed();
+    case6changed();
+    case7changed();
+    case8changed();
+    case9changed();
+    case10changed();
+    case11changed();
+    case12changed();
+    case13changed();
+    case14changed();
+    case15changed();
+    Scorechanged();
+    HighScoreChanged();
+}
+
+void QGrille::coup(int coup){           // Si on appuie sur une direction, on fait appel à la fonction Coup de GrilleG
+                                        // D'abord, on vérifie si le coup est possible
     if(coup==1 and GrilleG.canLeft()){
         GrilleG.coup(coup);
     }
@@ -34,53 +57,20 @@ void QGrille::coup(int coup){
     if(coup==4 and GrilleG.canDown()){
         GrilleG.coup(coup);
     }
-    getlist();
-    case0changed();
-    case1changed();
-    case2changed();
-    case3changed();
-    case4changed();
-    case5changed();
-    case6changed();
-    case7changed();
-    case8changed();
-    case9changed();
-    case10changed();
-    case11changed();
-    case12changed();
-    case13changed();
-    case14changed();
-    case15changed();
-    Scorechanged();
-    HighScoreChanged();
+
+    // On signal à l'affichage que la grille a changé
+    updateDisplay();
 
 }
 
 void QGrille::newGame(){
     GrilleG.newGame();
-    getlist();
-    case0changed();
-    case1changed();
-    case2changed();
-    case3changed();
-    case4changed();
-    case5changed();
-    case6changed();
-    case7changed();
-    case8changed();
-    case9changed();
-    case10changed();
-    case11changed();
-    case12changed();
-    case13changed();
-    case14changed();
-    case15changed();
-    Scorechanged();
-    HighScoreChanged();
+    // On signal à l'affichage que la grille a changé
+    updateDisplay();
 
 }
 
-void QGrille::getlist(){
+void QGrille::getlist(){    // On met à jour la liste des valeurs des tuiles
     int i;
     int j;
     int D=GrilleG.getDim();
@@ -92,7 +82,7 @@ void QGrille::getlist(){
     }
 }
 
-void QGrille::afficher(){
+void QGrille::afficher(){      // Affiche la liste des valeurs des tuiles (pour les tests)
     int k;
     getlist();
     for(k=0;k<length;k++){
@@ -102,30 +92,13 @@ void QGrille::afficher(){
 }
 
 
-void QGrille::back(){
+void QGrille::back(){           // Appelle la fonction back de Grille
     GrilleG.back();
-    getlist();
-    case0changed();
-    case1changed();
-    case2changed();
-    case3changed();
-    case4changed();
-    case5changed();
-    case6changed();
-    case7changed();
-    case8changed();
-    case9changed();
-    case10changed();
-    case11changed();
-    case12changed();
-    case13changed();
-    case14changed();
-    case15changed();
-    Scorechanged();
-    HighScoreChanged();
+    // On signal à l'affichage que la grille a changé
+    updateDisplay();
 }
 
-QString QGrille::color(QString string){
+QString QGrille::color(QString string){        // Renvoie une couleur en fonction de la valeur de la tuile (pour la couleur de la case)
     int k=string.toInt();
     if (k==0){
         return colors[0];
@@ -134,7 +107,7 @@ QString QGrille::color(QString string){
     return colors[int(log2(k))];
 }
 
-QString QGrille::colortext(QString string){
+QString QGrille::colortext(QString string){        // Renvoie une couleur en fonction de la valeur de la tuile (pour la couleur du texte de la case)
     int k=string.toInt();
     if (k==0){
         return colorstext[0];
