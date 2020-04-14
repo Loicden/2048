@@ -36,6 +36,8 @@ public:
     bool canDown();
     bool canLeft();
     bool canRight();
+    int GetHighScore();
+    void WriteHighScore();
 
 
 

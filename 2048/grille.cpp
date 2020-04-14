@@ -1,5 +1,6 @@
 #include "grille.h"
 #include <iostream>
+#include <fstream>
 #include "case.h"
 #include "grille.h"
 #include <QObject>
@@ -474,7 +475,7 @@ void Grille::coup(int Dir){
         newGame();
     }
     randCase();
-
+    WriteHighScore();
     resetfuse();
 
 
@@ -489,13 +490,38 @@ int Grille::getval(int i, int j){
 
 
 void Grille::newGame(){
-    tomemory();
+
     reset();
     resetfuse();
     setscore(0);
     randCase(false);
     randCase(false);
+    tomemory();
     Win=0;
+}
+
+int Grille::GetHighScore(){
+    ifstream InputFile ("scores.txt");
+    if(InputFile.is_open())
+    {
+        int score;
+        InputFile >> score;
+        cout<<score;
+        InputFile.close();
+        return score;
+    }
+}
+
+void Grille::WriteHighScore(){
+    ofstream OutputFile ("scores.txt"); //creates it if it doesn't exist
+    int score = GetHighScore();
+//    cout<<score;
+//    cout<<getScore();
+    if(getScore()>score){
+        OutputFile << getScore();
+        OutputFile.close();
+    }
+
 }
 
 
