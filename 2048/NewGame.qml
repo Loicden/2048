@@ -10,7 +10,8 @@ Item {
         y: 0
         width: 150
         height: 50
-        color: mouseAreaNewGame.pressed ? "#d5d9ea" : "#cdc1b4"
+        color: mouseAreaNewGame.pressed ? "#cdc1b4" : "#f59563"
+
         radius: 5
         border.color: "#a6a9d0"
         border.width: 0

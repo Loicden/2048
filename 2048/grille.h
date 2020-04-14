@@ -58,11 +58,6 @@ private:
     Case CasesN[4][4];
     Case CasesAvant[4][4]; //mémoire des coups précédents
 
-
-
-
-
-
 };
 
 

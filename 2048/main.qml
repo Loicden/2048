@@ -162,8 +162,18 @@ Window {
         x: 247
         y: 23
         text: vueObjetCpt.QScore
-        font.pixelSize: 30
+        font.pixelSize: scorearea.containsMouse ? 34 : 30
         font.family: "Gotham Ultra"
+
+        MouseArea{
+            id: scorearea
+            hoverEnabled: true
+            x:-18
+            y:-8
+            width: 150
+            height: 50
+
+        }
     }
 
     NewGame {
@@ -171,6 +181,7 @@ Window {
         x: 230
         y: 463
         focus: true
+        scale:  mouseAreaNewGame.containsMouse ? 1.0 : 0.9
 
             Keys.onPressed: {
                 switch (event.key) {
@@ -196,7 +207,9 @@ Window {
             y: 0
             width: 150
             height: 50
+            hoverEnabled: true
             onClicked:{
+
                 vueObjetCpt.newGame()}
         }
     }
@@ -206,6 +219,7 @@ Window {
         x: 20
         y: 463
         focus: true
+        scale:  mouseAreaBack.containsMouse ? 1.0 : 0.9
 
         MouseArea {
             id: mouseAreaBack
@@ -214,6 +228,8 @@ Window {
             width: 90
             height: 50
             onClicked: vueObjetCpt.back()
+            hoverEnabled: true
+
         }
     }
 
