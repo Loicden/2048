@@ -18,9 +18,10 @@ Item {
 
         Text {
             id: element
-            x: 17
+            x: 9
             y: 12
-            font.family : "Gotham Ultra"
+            font.family : "Verdana"
+            font.bold: true
             text: qsTr("New Game")
             font.pixelSize: 22
             verticalAlignment: Text.AlignVCenter

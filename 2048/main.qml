@@ -3,7 +3,6 @@ import QtQuick.Window 2.2
 
 Window {
     id: window
-    FontLoader { id: localFont; source: "2048/Gotham-UltraItalic.otf" }
     visible: true
     color: "#ffffff"
     width: 400
@@ -149,20 +148,24 @@ Window {
 
     Text {
         id: textscore
-        x: 110
+        x: 90
         y: 23
         text: qsTr("Score :")
         font.pixelSize: 30
-        font.family: "Gotham Ultra"
+        font.family: "verdana"
+        font.bold: true
     }
 
     Text {
         id: element
-        x: 247
+        x: 240
         y: 23
         text: vueObjetCpt.QScore
         font.pixelSize: scorearea.containsMouse ? 34 : 30
-        font.family: "Gotham Ultra"
+        font.family: "Verdana"
+        font.bold: true
+        color: scorearea.containsMouse ?  '#f59563' : '#000000'
+
 
         MouseArea{
             id: scorearea

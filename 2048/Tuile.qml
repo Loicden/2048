@@ -22,7 +22,8 @@ Item {
             width: 44
             color: vueObjetCpt.colortext(elementText)
             text: qsTr("0")
-            font.family: "Gotham Ultra"
+            font.family: "Verdana"
+            font.bold: true
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 35

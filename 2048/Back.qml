@@ -18,7 +18,8 @@ Item {
             id: element
             x: 15
             y: 12
-            font.family: "Gotham Ultra"
+            font.family: "Verdana"
+            font.bold: true
             text: qsTr("Back")
             font.pixelSize: 22
             verticalAlignment: Text.AlignVCenter
