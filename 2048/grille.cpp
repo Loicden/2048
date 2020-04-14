@@ -21,7 +21,7 @@ Grille::Grille(int Dim, int Sco, int TempSco)
         *Dimension=Dim;
     }
     else{
-        *Dimension=4;
+        *Dimension=4; //Dimension minimale de 4
     }
 
     setscore(Sco);
@@ -101,7 +101,7 @@ void Grille::tomemory(){
             CasesAvant[i][j].setValeur(CasesN[i][j].getValeur());
         }
     }
-    *Tempscore=getScore();
+    *Tempscore=getScore(); //Le score du coup d'avant est stocké en mémoire
 
 }
 
@@ -110,10 +110,10 @@ void Grille::back(){
     int j;
     for(i=0;i<getDim();i++){
         for(j=0;j<getDim();j++){
-            CasesN[i][j].setValeur(CasesAvant[i][j].getValeur());
+            CasesN[i][j].setValeur(CasesAvant[i][j].getValeur()); //On remet la grille au coup d'avant
         }
     }
-    setscore(*Tempscore);
+    setscore(*Tempscore); //On remet le score au coup d'avant
 }
 
 void Grille::showmemory(){
@@ -145,7 +145,7 @@ void Grille::reset(){
     int j;
     for(i=0; i<*Dimension+1; i++){
         for(j=0;j<*Dimension+1; j++){
-            CasesN[i][j].setValeur(0);
+            CasesN[i][j].setValeur(0); //valeur de toutes les cases remise à 0
         }
     }
 }
@@ -181,7 +181,7 @@ bool Grille::TestFull(){
     return true;
 }
 
-bool Grille::TestLose(){
+bool Grille::TestLose(){ //Cette fonction de marche pas, nous savons pourquoi mais ne l'avons pas modifiée car nous trouvons ça plus intuitif de ne pas pouvoir bougar quand la partie est perdue plutôt que de tout remettre à 0 brusquement
         int i;
         int j;
         for (i=0;i<getDim()-1;i++){
@@ -219,7 +219,7 @@ bool Grille::canUp(){
             }
         }
     }
-    return false;
+    return false; //Si aucune case non nulle ne peut fusionner ou bouger, alors la grille ne peut pas bouger
 }
 
 bool Grille::canDown(){
@@ -288,7 +288,7 @@ bool Grille::testMove(int i, int j, int newi, int newj){
 
     else if (CasesN[newi][newj].getValeur()==0){
         return true;
-    }
+    }//Une case peut bouger si elle est non nulle, que la case visée est de valeur nulle, sur la même ligne ou colonne, et ne sort pas de la grille.
 
     return false;
 

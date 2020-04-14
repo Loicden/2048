@@ -46,10 +46,11 @@ public:
     void afficher();
     Grille GrilleG;
     int length;
-    int cases[16];
+    int cases[16]; //Liste des cases
+    //Listes des couleurs pour les cases
     QString colors[12]={"#cdc1b4","#eee4da","#f2b179","#f2b179","#f59563","#f67c60","#f65e3b","#edcf73","#edcc62","#edc850","#edc53f","#edc22d"};
     QString colorstext[12]={"#474543","#474543","#474543","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4","#f9f8f4"};
-
+    //Fonctions de mise à jour graphique de chaque case
     QString case0() {
         if(cases[0]==0){
             return "";
@@ -149,20 +150,19 @@ public:
     QString Getscore() {
         return QString::number(GrilleG.getScore());
     }
-
+    //Récupération du high score (non fonctionnel)
     QString GetHighScore(){
         cout<<GrilleG.GetHighScore();
         return QString::number(GrilleG.GetHighScore());
 
     }
-
+    //mise à jour graphique des couleurs
     QString color0(){
         if (cases[0]==0){
             return colors[0];
         }
         return colors[int(log2(cases[0]))];
     }
-
     QString color1(){
         if (cases[1]==0){
             return colors[0];
@@ -256,6 +256,7 @@ public:
 
 
 signals:
+    //signaux de changements de couleur et de valeur
     void case0changed();
     void case1changed();
     void case2changed();
@@ -277,6 +278,7 @@ signals:
 
 
 private:
+    //score
     QString score;
 
 };
