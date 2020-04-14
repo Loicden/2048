@@ -52,6 +52,7 @@ void QGrille::coup(int coup){
     case14changed();
     case15changed();
     Scorechanged();
+    HighScoreChanged();
 
 }
 
@@ -75,6 +76,7 @@ void QGrille::newGame(){
     case14changed();
     case15changed();
     Scorechanged();
+    HighScoreChanged();
 
 }
 
@@ -120,6 +122,7 @@ void QGrille::back(){
     case14changed();
     case15changed();
     Scorechanged();
+    HighScoreChanged();
 }
 
 QString QGrille::color(QString string){

@@ -29,6 +29,8 @@ Grille::Grille(int Dim, int Sco, int TempSco)
     Case CasesN[Dim][Dim];
     Case CasesAvant[Dim][Dim];
     initialisation();
+    ofstream OutputFile ("scores.txt"); //creates it if it doesn't exist
+
 }
 
 bool Grille::canfuse(int i, int j){
@@ -502,14 +504,16 @@ void Grille::newGame(){
 
 int Grille::GetHighScore(){
     ifstream InputFile ("scores.txt");
-    if(InputFile.is_open())
-    {
         int score;
-        InputFile >> score;
-        cout<<score;
+        string line;
+        while ( getline (InputFile,line) )
+            {
+              cout << line << '\n';
+              score=std::stoi(line);
+            }
+//        cout<<score;
         InputFile.close();
         return score;
-    }
 }
 
 void Grille::WriteHighScore(){

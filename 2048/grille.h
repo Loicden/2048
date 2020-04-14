@@ -3,6 +3,8 @@
 #include "case.h"
 #include <QObject>
 #include <string>
+#include <iostream>
+#include <fstream>
 
 class Grille{
 public:
@@ -55,6 +57,7 @@ private:
     int Lose;
     Case CasesN[4][4];
     Case CasesAvant[4][4]; //mémoire des coups précédents
+
 
 
 

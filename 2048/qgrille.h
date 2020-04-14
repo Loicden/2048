@@ -8,6 +8,7 @@
 #include <iostream>
 #include <QString>
 #include <math.h>
+#include<fstream>
 using namespace std;
 
 class QGrille : public QObject
@@ -30,6 +31,7 @@ class QGrille : public QObject
     Q_PROPERTY(QString case14 READ case14 NOTIFY case14changed)
     Q_PROPERTY(QString case15 READ case15 NOTIFY case15changed)
     Q_PROPERTY(QString QScore READ Getscore NOTIFY Scorechanged)
+    Q_PROPERTY(QString QHighScore READ GetHighScore NOTIFY HighScoreChanged)
 
 
 
@@ -146,6 +148,12 @@ public:
     }
     QString Getscore() {
         return QString::number(GrilleG.getScore());
+    }
+
+    QString GetHighScore(){
+        cout<<GrilleG.GetHighScore();
+        return QString::number(GrilleG.GetHighScore());
+
     }
 
     QString color0(){
@@ -265,7 +273,7 @@ signals:
     void case14changed();
     void case15changed();
     void Scorechanged();
-
+    void HighScoreChanged();
 
 
 private:
