@@ -313,7 +313,7 @@ bool Grille::testFuse(int i, int j, int newi, int newj){
     else if (TriedTile.getValeur()==NextTile.getValeur()){
         return true;
     }
-    return false;
+    return false; //une case peut fusionner si elle ne sort pas de la grille, si la case visée peut fusionner, qu'elle est non nulle et que la case visée est de même valeur
 
 }
 
@@ -339,18 +339,18 @@ void Grille::move(int i, int j, int newi, int newj){
         }
         else {
             CasesN[newi][newj].setValeur(newval);
-        }
+        }//Si la case sort, alors la case limite de la grille prend la valeur, sinon la case visée prend la valeur
 }
 
 void Grille::fuse(int i, int j, int newi, int newj){
     int newval=2*CasesN[i][j].getValeur();
-    CasesN[newi][newj].setValeur(newval);
-    CasesN[i][j].setValeur(0);
-    CasesN[newi][newj].setfuse(false);
-    if(newval==2048){
+    CasesN[newi][newj].setValeur(newval);//la nouvelle cas double de valeur
+    CasesN[i][j].setValeur(0); //l'ancienne case devient nulle.
+    CasesN[newi][newj].setfuse(false); //on interdit à la case de refusionner
+    if(newval==2048){//On teste si on a gagné (atteint 2048)
         Win=1;
     }
-    setscore(getScore()+newval);
+    setscore(getScore()+newval);//l'ancien score est mis à jour
 
 
 
@@ -365,7 +365,7 @@ void Grille::coup(int Dir){
     tomemory();
     int i;
     int j;
-    int Tab[] = {1,2,3,4};
+    int Tab[] = {1,2,3,4}; //Pour pouvoir parcourir la grille dans différents sens en fonction de Dir
     int Tab_inv[] = {4,3,2,1};
     int x_it;
     int y_it;
@@ -468,7 +468,7 @@ void Grille::coup(int Dir){
             }
         }
     }
-    if (TestLose()){
+    if (TestLose()){ //Comme dit précédemment, cette fonction ne s'active pas en cas de défaite, car il semble plus pertinent de laisser la grille pleine sans que l'utilisateur ne puisse bouger
         cout<<"perdu!";
         newGame();
     }
@@ -493,10 +493,10 @@ int Grille::getval(int i, int j){
 
 void Grille::newGame(){
 
-    reset();
-    resetfuse();
-    setscore(0);
-    randCase(false);
+    reset(); //Cases nulles
+    resetfuse(); //Cases fusionables
+    setscore(0); //Score nul
+    randCase(false); //Nouvelle case ne pouvant être 4
     randCase(false);
     tomemory();
     Win=0;
@@ -504,7 +504,7 @@ void Grille::newGame(){
 
 int Grille::GetHighScore(){
     ifstream InputFile;
-    InputFile.open("scores.txt");
+    InputFile.open("scores.txt"); //Aucune idée de pourquoi ça ne marche pas, mais le fichier ouvert est toujours vide, alors que lorsqu'on l'ouvre à la main, il ne l'est pas
         int score;
         InputFile >> score;
         InputFile.close();
@@ -512,7 +512,7 @@ int Grille::GetHighScore(){
 }
 
 void Grille::WriteHighScore(){
-    ofstream OutputFile ("scores.txt");
+    ofstream OutputFile ("scores.txt"); //Cette fonction marche, on imagine que le .txt ouvert n'est donc pas le même
     int score = GetHighScore();
 //    cout<<score;
 //    cout<<getScore();
