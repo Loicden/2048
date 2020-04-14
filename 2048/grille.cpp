@@ -98,6 +98,7 @@ void Grille::tomemory(){
             CasesAvant[i][j].setValeur(CasesN[i][j].getValeur());
         }
     }
+    *Tempscore=getScore();
 
 }
 
@@ -109,6 +110,7 @@ void Grille::back(){
             CasesN[i][j].setValeur(CasesAvant[i][j].getValeur());
         }
     }
+    setscore(*Tempscore);
 }
 
 void Grille::showmemory(){
@@ -201,22 +203,84 @@ void Grille::setscore(int score){
     Score=score;
 }
 
+bool Grille::canUp(){
+    int i;
+    int j;
+    for(i=0;i<getDim();i++){
+        for(j=0;j<getDim();j++){
+            if(testFuse(i,j,i-1,j) and getval(i,j)!=0){
+                return true;
+            }
+            if(testMove(i,j,i-1,j)){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
+bool Grille::canDown(){
+    int i;
+    int j;
+    for(i=0;i<getDim();i++){
+        for(j=0;j<getDim();j++){
+            if(testFuse(i,j,i+1,j) and getval(i,j)!=0){
+                return true;
+            }
+            if(testMove(i,j,i+1,j)){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
+bool Grille::canLeft(){
+    int i;
+    int j;
+    for(i=0;i<getDim();i++){
+        for(j=0;j<getDim();j++){
+            if(testFuse(i,j,i,j-1) and getval(i,j)!=0){
+                return true;
+            }
+            if(testMove(i,j,i,j-1)){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool Grille::canRight(){
+    int i;
+    int j;
+    for(i=0;i<getDim();i++){
+        for(j=0;j<getDim();j++){
+            if(testFuse(i,j,i,j+1) and getval(i,j)!=0){
+                return true;
+            }
+            if(testMove(i,j,i,j+1)){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 
 bool Grille::testMove(int i, int j, int newi, int newj){
     Case TriedTile;
     TriedTile=CasesN[i][j];
-    if (newi < 0 or newj < 0 or newi > getDim()-1 or newj > getDim()-1){
+    if (TriedTile.getValeur()==0){
+        return false;
+    }
+    else if (newi < 0 or newj < 0 or newi > getDim()-1 or newj > getDim()-1){
         return false;
     }
     else if(i!=newi && j!=newj){
         return false;
     }
-    else if (TriedTile.getValeur()==0){
-        return false;
-    }
+
 
 
     else if (CasesN[newi][newj].getValeur()==0){
@@ -401,6 +465,7 @@ void Grille::coup(int Dir){
             }
         }
     }
+    cout<<canUp()<<canDown()<<canLeft()<<canRight();
     if (TestLose()){
         cout<<"perdu!";
         newGame();
@@ -412,8 +477,7 @@ void Grille::coup(int Dir){
     randCase();
 
     resetfuse();
-    showmemory();
-    afficherGrille();
+
 
 
 

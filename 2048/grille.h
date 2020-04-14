@@ -32,6 +32,11 @@ public:
     bool TestLose();
     bool TestFull();
     void showmemory();
+    bool canUp();
+    bool canDown();
+    bool canLeft();
+    bool canRight();
+
 
 
 private:

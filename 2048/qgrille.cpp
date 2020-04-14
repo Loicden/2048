@@ -22,7 +22,18 @@ QGrille::QGrille(Grille Gril, QObject *parent) : QObject(parent)
 }
 
 void QGrille::coup(int coup){
-    GrilleG.coup(coup);
+    if(coup==1 and GrilleG.canLeft()){
+        GrilleG.coup(coup);
+    }
+    if(coup==2 and GrilleG.canRight()){
+        GrilleG.coup(coup);
+    }
+    if(coup==3 and GrilleG.canUp()){
+        GrilleG.coup(coup);
+    }
+    if(coup==4 and GrilleG.canDown()){
+        GrilleG.coup(coup);
+    }
     getlist();
     case0changed();
     case1changed();
