@@ -3,12 +3,11 @@ import QtQuick.Window 2.2
 
 Window {
     id: window
-
+    FontLoader { id: localFont; source: "2048/Gotham-UltraItalic.otf" }
     visible: true
     color: "#ffffff"
     width: 400
     height: 535
-
     title: qsTr("Jeu du 2048")
     property alias elementText: element.text
     property alias tuile1ElementText: tuile1.elementText
